@@ -16,7 +16,7 @@
     {% for lib in libs %}
     <!-- Library Card - {{lib.name}} -->
     <a class="dark:bg-gray-800 flex flex-col bg-white p-4 rounded-lg shadow-md justify-between mx-auto w-full min-w-0 h-full"
-        href=" {{ url_for('lib_detail', lib=lib.folder) }}"></a>
+        href=" {{url}}/libs/{{ lib.folder }}/">
         <div class="flex flex-col h-full w-full flex-grow">
             <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">{{ lib.name }}</h2>
             <p class="dark:text-gray-300 text-gray-600 mb-2">{{ lib.description }}</p>
@@ -25,52 +25,3 @@
     {% endfor %}
 </div>
 {% endblock %}
-
-{# not used code #}
-<div class="dark:bg-gray-800 flex flex-col justify-between bg-white p-4 rounded-lg shadow-md max-w-sm mx-auto">
-    <div>
-        <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Repository Name</h2>
-        <p class="dark:text-gray-300 text-gray-600 mb-2">Repository description goes here...</p>
-
-        <div class="mb-4">
-            <span
-                class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-blue-100 text-blue-800">Tag
-                1</span>
-            <span
-                class="inline-flex items-center ml-2 px-2.5 py-0.5 rounded-md text-sm font-medium bg-green-100 text-green-800">Tag
-                2</span>
-            <span
-                class="inline-flex items-center ml-2 px-2.5 py-0.5 rounded-md text-sm font-medium bg-yellow-100 text-yellow-800">Tag
-                3</span>
-        </div>
-
-        <div class="flex justify-between mt-4">
-            <p class="dark:text-gray-300 text-gray-700">CSS</p>
-            <p class="dark:text-gray-300 text-gray-700">MIT License</p>
-        </div>
-
-        <p class="mt-4 dark:text-gray-300 text-gray-700">Last updated: 4 days ago</p>
-    </div>
-
-    <div class="flex items-center justify-between mt-4">
-        <div class="flex items-center">
-            <svg class="w-4 h-4 dark:text-gray-300 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd"
-                    d="M10 2a8 8 0 100 16 4 4 0 013.446-6.032 1 1 0 011.868.828 4 4 0 01-.893 4.26A3.5 3.5 0 0110 18v-2a1.5 1.5 0 00-1.14-1.446A4 4 0 016 12a4 4 0 100-8 1 1 0 11-2 0 6 6 0 116 6v-1.928A1.5 1.5 0 0010 2z"
-                    clip-rule="evenodd" />
-            </svg>
-            <span class="ml-2 dark:text-gray-300 text-gray-700">100 Stars</span>
-        </div>
-
-        <div class="flex items-center">
-            <svg class="w-4 h-4 dark:text-gray-300 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd"
-                    d="M2 5a2 2 0 012-2h4a2 2 0 012 2v1h4a2 2 0 012 2v5a2 2 0 01-2 2h-4v1a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm10 1H8v1H4v5h4v-1h4V6z"
-                    clip-rule="evenodd" />
-            </svg>
-            <span class="ml-2 dark:text-gray-300 text-gray-700">20 Forks</span>
-        </div>
-    </div>
-</div>
