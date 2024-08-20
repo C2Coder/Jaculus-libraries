@@ -1,0 +1,26 @@
+- description: Library for handling colors
+  examples:
+  - file: examples/basic-usage.ts
+    name: Basic usage
+  files:
+  - colors.ts
+  folder: colors
+  name: Colors
+- description: Library for controlling servos
+  examples:
+  - file: examples/basic-usage.ts
+    name: Basic usage
+  - file: examples/multi-servo.ts
+    name: Multiple servos
+  files:
+  - servo.ts
+  folder: servo
+  name: Servo
+- description: Library for easily reading lines from standard input
+  examples:
+  - file: examples/basic-usage.ts
+    name: Basic usage
+  files:
+  - readline.ts
+  folder: readline
+  name: Readline
