@@ -1,0 +1,11 @@
+name: Servo
+description: Library for controlling servos
+files:
+  - servo.ts
+examples:
+  - 
+    name: Basic usage
+    file: examples/basic-usage.ts
+  - 
+    name: Multiple servos
+    file: examples/multi-servo.ts

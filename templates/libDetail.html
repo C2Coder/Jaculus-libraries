@@ -1,0 +1,41 @@
+{% set title = lib.name %}
+{% extends "base.html" %}
+{% block content %}
+<div class="mx-2 mt-2 ">
+    {# lib top bar #}
+    <div class="flex flex-col gap-2 ">
+        <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">{{ lib.name }}</h2>
+            <p class="dark:text-gray-300 text-gray-600 flex-grow">{% if lib.description %}{{ lib.description }}{% else
+                %}No description{% endif %}</p>
+        </div>
+
+        <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Install command</h2>
+            <div class="">
+                <pre class="rounded"><code class="language-bash">{{ lib.install_bash }}</code></pre>
+            </div>
+        </div>
+
+    </div>
+
+    {# Examples #}
+
+    <div class="mt-4 mb-2 p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+        <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Examples:</h2>
+    </div>
+    <div class="flex flex-col gap-2 w-full">
+        {% for example in lib.examples %}
+        <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">{{ example.name }}</h2>
+            
+            <div class="px-2">
+                <pre class="rounded"><code class="language-typescript">{{ example.code }}</code></pre>
+            </div>
+                
+        </div>
+        {% endfor %}
+
+
+</div>
+{% endblock %}
