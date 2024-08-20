@@ -38,7 +38,7 @@ def generate(library_dir: str,static_dir: str, template_dir: str, build_dir: str
     # with open(f'static/CNAME', 'r') as f:
     #     _cname:str = f.read()
     #     _cname = _cname.replace("\n", "")
-    _cname = "https://c2coder.github.io/Jaculus-libraries"
+    _cname = "c2coder.github.io/Jaculus-libraries"
 
     url = f"https://{_cname}"
     #url = f"https://raw.githubusercontent.com/{user}/{repo}/main/README.md"
