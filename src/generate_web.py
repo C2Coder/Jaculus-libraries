@@ -108,10 +108,10 @@ class GenerateWeb:
         shutil.copytree(self.libs_dir, os.path.join(self.build_dir, 'data/libs'), dirs_exist_ok=True)
 
     def generate_index(self): #TODO same as generate_libs_list
-        self.render_page('libs.html', self.paths.get("/").get("path"), libs=self.libs, num_of_libs=len(self.libs), now=now, user=self.user)
+        self.render_page('libs.html', self.paths.get("/").get("path"), libs=self.libs, num_of_libs=len(self.libs), now=now, user=self.user, url=self.url)
 
     def generate_libs_list(self):
-        self.render_page('libs.html', self.paths.get("Libs").get("path"), libs=self.libs, num_of_libs=len(self.libs), now=now, user=self.user)
+        self.render_page('libs.html', self.paths.get("Libs").get("path"), libs=self.libs, num_of_libs=len(self.libs), now=now, user=self.user, url=self.url)
 
     def generate_lib_detail(self):
         for lib in self.libs:
@@ -125,7 +125,7 @@ class GenerateWeb:
                 _str += f"curl -o src/libs/{f} {self.url}/data/libs/{lib.get('folder')}/{f}\n"
             lib["install_bash"] = _str.strip()
 
-            self.render_page('libDetail.html', self.paths.get("Lib").get("path").format(lib.get("folder")), lib=lib, now=now, user=self.user)
+            self.render_page('libDetail.html', self.paths.get("Lib").get("path").format(lib.get("folder")), lib=lib, now=now, user=self.user, url=self.url)
 
     def render_page(self, template_name: Union[str, "Template"], path_render: str, **kwargs):
         template = self.env.get_template(template_name)
