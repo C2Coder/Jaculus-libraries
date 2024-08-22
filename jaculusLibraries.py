@@ -2,8 +2,7 @@ import os
 import click
 import json
 from src.generate_web import GenerateWeb
-from src.generate_manifest import GenerateManifest
-from pprint import pprint
+from src.generators import GenerateManifest
 from time import time
 import logging
 
@@ -19,13 +18,15 @@ def cli():
 @click.option('--static-dir', default='static', help="Static directory (default is 'static')")
 @click.option('--template-dir', '-t', default='templates', help="Template directory (default is 'templates')")
 @click.option('--build-dir', '-o', default='build', help='build directory (default is build)')
+@click.option('--build-libs-dir', '-ol', default='build/data', help='build libs directory (default is build/data)')
+@click.option('--manifest-name', default='manifest', help='manifest name (default is manifest)')
 @click.option('--verbose', default=False, is_flag=True, help='Verbose build')
 @click.option('--compile-tailwind', default=False, is_flag=True, help='Compile tailwind (requires npx + tailwindcss)')
-def generate(library_dir: str,static_dir: str, template_dir: str, build_dir: str, verbose: bool, compile_tailwind: bool):
+def generate(library_dir: str,static_dir: str, template_dir: str, build_dir: str, build_libs_dir: str, manifest_name: str, verbose: bool, compile_tailwind: bool):
     print(f"Generating web to {build_dir} directory")
     start = time()
 
-    manifest = GenerateManifest(library_dir,verbose)
+    manifestGen = GenerateManifest(library_dir,verbose)
 
     with open(f'package.json', 'r') as f:
         package_json:dict = json.loads(f.read())
@@ -38,12 +39,11 @@ def generate(library_dir: str,static_dir: str, template_dir: str, build_dir: str
     # with open(f'static/CNAME', 'r') as f:
     #     _cname:str = f.read()
     #     _cname = _cname.replace("\n", "")
-    _cname = "c2coder.github.io/Jaculus-libraries"
+    _cname = "c2coder.github.io/Jaculus-libraries" #TODO: temp
 
     url = f"https://{_cname}"
-    #url = f"https://raw.githubusercontent.com/{user}/{repo}/main/README.md"
 
-    generate_web = GenerateWeb(manifest.libs, url, user, library_dir, build_dir, os.path.abspath(template_dir), static_dir, verbose, compile_tailwind)
+    generate_web = GenerateWeb(manifestGen.libs, url, user, repo, manifest_name, library_dir, build_dir, build_libs_dir, os.path.abspath(template_dir), static_dir, verbose, compile_tailwind)
     generate_web.generate()
     print(f"Generated web to {build_dir} directory in {time() - start:.2f} seconds")
 

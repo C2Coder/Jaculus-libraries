@@ -1,7 +1,7 @@
 # Jaculus-libraries
 Jaculus repository for all libraries
 
-## How to use
+## Dev
 
 ### Install
 
@@ -21,15 +21,17 @@ make generate
 make serve
 ```
 
-without livereload
-```bash
-make serve-no-livereload
+## File structure
+```
+data/
+├── manifest.yaml
+├── colors/
+│   ├── colors.ts
+│   ├── manifest.yaml
+│   └── examples/
+│       └── basic-usage.ts
+└── ...
 ```
 
-more info
-```bash
-python3 jaculusLibraries.py --help
-```
-
-## License
-MIT
+All filenames are in the manifest.yaml file
+Every .ts and .yaml files are compiled to .js/.json files
