@@ -33,5 +33,5 @@ data/
 └── ...
 ```
 
-All filenames are in the manifest.yaml file
+All filenames are in the manifest.yaml file <br>
 Every .ts and .yaml files are compiled to .js/.json files
