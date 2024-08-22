@@ -1,0 +1,13 @@
+{
+    "name": "VL53L0X",
+    "description": "Library for controlling VL53L0X distance sensor",
+    "files": [
+        "VL53L0X.ts"
+    ],
+    "examples": [
+        {
+            "name": "Basic usage",
+            "file": "examples/basic-usage.ts"
+        }
+    ]
+}

@@ -1,0 +1,76 @@
+[
+    {
+        "description": "Library for handling colors",
+        "examples": [
+            {
+                "file": "examples/basic-usage.ts",
+                "name": "Basic usage"
+            }
+        ],
+        "files": [
+            "colors.ts"
+        ],
+        "folder": "colors",
+        "name": "Colors"
+    },
+    {
+        "description": "Library for controlling Robutek robot (Robocamp 2024)",
+        "examples": [
+            {
+                "file": "examples/basic-usage.ts",
+                "name": "Basic usage"
+            }
+        ],
+        "files": [
+            "robutek.ts"
+        ],
+        "folder": "robutek",
+        "name": "Robutek"
+    },
+    {
+        "description": "Library for controlling servos",
+        "examples": [
+            {
+                "file": "examples/basic-usage.ts",
+                "name": "Basic usage"
+            },
+            {
+                "file": "examples/multi-servo.ts",
+                "name": "Multiple servos"
+            }
+        ],
+        "files": [
+            "servo.ts"
+        ],
+        "folder": "servo",
+        "name": "Servo"
+    },
+    {
+        "description": "Library for easily reading lines from standard input",
+        "examples": [
+            {
+                "file": "examples/basic-usage.ts",
+                "name": "Basic usage"
+            }
+        ],
+        "files": [
+            "readline.ts"
+        ],
+        "folder": "readline",
+        "name": "Readline"
+    },
+    {
+        "description": "Library for controlling VL53L0X distance sensor",
+        "examples": [
+            {
+                "file": "examples/basic-usage.ts",
+                "name": "Basic usage"
+            }
+        ],
+        "files": [
+            "VL53L0X.ts"
+        ],
+        "folder": "VL53L0X",
+        "name": "VL53L0X"
+    }
+]

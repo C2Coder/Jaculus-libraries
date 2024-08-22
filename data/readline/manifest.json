@@ -1,0 +1,13 @@
+{
+    "name": "Readline",
+    "description": "Library for easily reading lines from standard input",
+    "files": [
+        "readline.ts"
+    ],
+    "examples": [
+        {
+            "name": "Basic usage",
+            "file": "examples/basic-usage.ts"
+        }
+    ]
+}
