@@ -38,33 +38,23 @@ class GenerateManifest:
 class GenerateJavascript:
     def __init__(
         self,
-        libs: list,
         libs_dir: str = "libraries",
-        build_dir: str = "build",
         build_libs_dir: str = "build/data/libs",
     ):
-        self.libs = libs
         self.libs_dir = libs_dir
-        self.build_dir = build_dir
         self.build_libs_dir = build_libs_dir
 
-    def _gen(self, folder: str, file: str):
-        if not os.path.exists(os.path.join(self.libs_dir, folder, file)):
-            raise FileNotFoundError(
-                f"The file {os.path.join(folder, file)} does not exist."
-            )
 
-        # Run the TypeScript compiler
+
+    def generate(self):
         try:
-            print(f"Compiling {os.path.join(self.libs_dir, folder, file)}")
-            # print(["npx", "tsc", os.path.join(self.libs_dir, folder, file), "--outDir", os.path.join(self.build_libs_dir, folder)],)
+            print(f"Compiling {self.libs_dir} to {self.build_libs_dir}")
             result = subprocess.run(
                 [
-                    "npx",
-                    "tsc",
-                    os.path.join(self.libs_dir, folder, file),
-                    "--outDir",
-                    os.path.join(self.build_libs_dir, folder),
+                    "node",
+                    "src/compileJs.js",
+                    self.libs_dir,
+                    self.build_libs_dir,
                 ],
                 check=True,
                 stdout=subprocess.PIPE,
@@ -74,11 +64,6 @@ class GenerateJavascript:
         except Exception as e:
             print("Compilation errored!")
             print(e)
-
-    def generate(self):
-        for lib in self.libs:
-            for file in lib[1]:
-                self._gen(lib[0], file)
 
 
 class GenerateJsonManifests:

@@ -1,0 +1,10 @@
+{
+    "name": "Jaculus-libraries-js-compiler",
+    "type": "module",  
+    "description": "JS compiler for Jaculus-libraries",
+    "main": "compileJs.js",
+    "author": "C2Coder",
+    "devDependencies": {
+        "typescript": "^4.9.5"
+    }
+}

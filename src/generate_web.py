@@ -124,7 +124,7 @@ class GenerateWeb:
         shutil.copytree(self.libs_dir, self.build_libs_dir, dirs_exist_ok=True)
 
     def generate_javascript(self):
-        GenerateJavascript([(lib.get("folder"), lib.get("files")) for lib in self.libs], self.libs_dir, self.build_dir, self.build_libs_dir).generate()
+        GenerateJavascript(self.libs_dir, self.build_libs_dir).generate()
 
     def generate_json_manifest(self):
         GenerateJsonManifests([lib.get("folder") for lib in self.libs], "manifest.yaml", self.libs_dir, self.build_dir, self.build_libs_dir).generate()
