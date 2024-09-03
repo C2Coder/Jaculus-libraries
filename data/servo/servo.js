@@ -1,18 +1,15 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Servo = void 0;
-var ledc = require("ledc");
+import * as ledc from "ledc";
 /**
  * A class for controlling a servo motor.
  */
-var Servo = /** @class */ (function () {
+export class Servo {
     /**
      * Create a new servo object.
      * @param pin The pin the servo is connected to.
      * @param timer The timer to use for PWM.
      * @param channel The channel to use for PWM.
      */
-    function Servo(pin, timer, channel) {
+    constructor(pin, timer, channel) {
         this.channel = channel;
         ledc.configureTimer(timer, 50, 12); // 50Hz is the frequency of a servo, 12 is the resolution of the timer
         ledc.configureChannel(channel, pin, timer, 1023); // 1023 is the resolution of a servo
@@ -21,13 +18,11 @@ var Servo = /** @class */ (function () {
      * Set the servo position.
      * @param value The position to set the servo to, from 0-1023.
      */
-    Servo.prototype.write = function (value) {
+    write(value) {
         // map the value from 0-1023 to 0.5-2.5ms
-        var ms = ((value / 1023) * 2) + 0.5; // 0.5-2.5ms is the range of a servo
+        const ms = ((value / 1023) * 2) + 0.5; // 0.5-2.5ms is the range of a servo
         // convert to a duty cycle
-        var duty = (ms / 20) * 1023; // 20ms is the period of a servo
+        const duty = (ms / 20) * 1023; // 20ms is the period of a servo
         ledc.setDuty(this.channel, duty); // set the duty cycle to the servo
-    };
-    return Servo;
-}());
-exports.Servo = Servo;
+    }
+}
