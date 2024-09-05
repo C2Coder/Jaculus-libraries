@@ -1,6 +1,6 @@
 [
     {
-        "description": "Library for handling colors",
+        "description": "Testing library",
         "examples": [
             {
                 "file": "examples/basic-usage.ts",
@@ -8,10 +8,25 @@
             }
         ],
         "files": [
-            "colors.ts"
+            "test-lib-1.ts",
+            "test-lib-2.ts"
         ],
-        "folder": "colors",
-        "name": "Colors"
+        "folder": "test-library",
+        "name": "test-library"
+    },
+    {
+        "description": "Library for controlling VL53L0X distance sensor",
+        "examples": [
+            {
+                "file": "examples/basic-usage.ts",
+                "name": "Basic usage"
+            }
+        ],
+        "files": [
+            "VL53L0X.ts"
+        ],
+        "folder": "VL53L0X",
+        "name": "VL53L0X"
     },
     {
         "description": "Library for controlling Robutek robot (Robocamp 2024)",
@@ -26,6 +41,20 @@
         ],
         "folder": "robutek",
         "name": "Robutek"
+    },
+    {
+        "description": "Library for easily reading lines from standard input",
+        "examples": [
+            {
+                "file": "examples/basic-usage.ts",
+                "name": "Basic usage"
+            }
+        ],
+        "files": [
+            "readline.ts"
+        ],
+        "folder": "readline",
+        "name": "Readline"
     },
     {
         "description": "Library for controlling servos",
@@ -46,7 +75,7 @@
         "name": "Servo"
     },
     {
-        "description": "Library for easily reading lines from standard input",
+        "description": "Library for handling colors",
         "examples": [
             {
                 "file": "examples/basic-usage.ts",
@@ -54,23 +83,9 @@
             }
         ],
         "files": [
-            "readline.ts"
+            "colors.ts"
         ],
-        "folder": "readline",
-        "name": "Readline"
-    },
-    {
-        "description": "Library for controlling VL53L0X distance sensor",
-        "examples": [
-            {
-                "file": "examples/basic-usage.ts",
-                "name": "Basic usage"
-            }
-        ],
-        "files": [
-            "VL53L0X.ts"
-        ],
-        "folder": "VL53L0X",
-        "name": "VL53L0X"
+        "folder": "colors",
+        "name": "Colors"
     }
 ]

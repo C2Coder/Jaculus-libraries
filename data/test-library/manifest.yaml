@@ -1,0 +1,10 @@
+name: test-library
+description: Testing library
+files:
+  - test-lib-1.ts
+  - test-lib-2.ts
+examples:
+  - 
+    name: Basic usage
+    file: examples/basic-usage.ts
+

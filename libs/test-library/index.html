@@ -1,7 +1,4 @@
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head class="dark:bg-gray-800 bg-gray-200">
@@ -21,7 +18,7 @@
 <!-- Prism.js TypeScript support -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-typescript.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-bash.min.js"></script>
-    <title>Jaculus Libraries</title>
+    <title>test-library</title>
 </head>
 <body class="flex flex-col min-h-screen">
     
@@ -84,69 +81,45 @@
     
     <div class="mt-20 md:mt-28">
         
-<div
-    class="flex flex-grow mt-2 mx-2 p-4 text-base dark:bg-gray-800 bg-white rounded-lg shadow-md dark:text-white text-gray-800">
-    <p>
-        Listed 6 libraries
-    </p>
-</div>
-
-<div class="mx-2 mt-2 grid grid-cols-1 md:grid-cols-4 gap-2">
+<div class="mx-2 mt-2 ">
     
-    <!-- Library Card - test-library -->
-    <a class="dark:bg-gray-800 flex flex-col bg-white p-4 rounded-lg shadow-md justify-between mx-auto w-full min-w-0 h-full"
-        href=" https://c2coder.github.io/Jaculus-libraries/libs/test-library/">
-        <div class="flex flex-col h-full w-full flex-grow">
+    <div class="flex flex-col gap-2 ">
+        <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
             <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">test-library</h2>
-            <p class="dark:text-gray-300 text-gray-600 mb-2">Testing library</p>
+            <p class="dark:text-gray-300 text-gray-600 flex-grow">Testing library</p>
         </div>
-    </a>
-    
-    <!-- Library Card - VL53L0X -->
-    <a class="dark:bg-gray-800 flex flex-col bg-white p-4 rounded-lg shadow-md justify-between mx-auto w-full min-w-0 h-full"
-        href=" https://c2coder.github.io/Jaculus-libraries/libs/VL53L0X/">
-        <div class="flex flex-col h-full w-full flex-grow">
-            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">VL53L0X</h2>
-            <p class="dark:text-gray-300 text-gray-600 mb-2">Library for controlling VL53L0X distance sensor</p>
+
+        <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Install command</h2>
+            <div class="">
+                <pre class="rounded"><code class="language-bash">curl -o src/libs/test-lib-1.ts https://c2coder.github.io/Jaculus-libraries/data/test-library/test-lib-1.ts
+curl -o src/libs/test-lib-2.ts https://c2coder.github.io/Jaculus-libraries/data/test-library/test-lib-2.ts</code></pre>
+            </div>
         </div>
-    </a>
+
+    </div>
+
     
-    <!-- Library Card - Robutek -->
-    <a class="dark:bg-gray-800 flex flex-col bg-white p-4 rounded-lg shadow-md justify-between mx-auto w-full min-w-0 h-full"
-        href=" https://c2coder.github.io/Jaculus-libraries/libs/robutek/">
-        <div class="flex flex-col h-full w-full flex-grow">
-            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Robutek</h2>
-            <p class="dark:text-gray-300 text-gray-600 mb-2">Library for controlling Robutek robot (Robocamp 2024)</p>
+
+    <div class="mt-4 mb-2 p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+        <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Examples:</h2>
+    </div>
+    <div class="flex flex-col gap-2 w-full">
+        
+        <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Basic usage</h2>
+            
+            <div class="px-2">
+                <pre class="rounded"><code class="language-typescript">import { test1, test2 } from &#34;./libs/test-lib-1.js&#34;
+
+test1();
+test2();</code></pre>
+            </div>
+                
         </div>
-    </a>
-    
-    <!-- Library Card - Readline -->
-    <a class="dark:bg-gray-800 flex flex-col bg-white p-4 rounded-lg shadow-md justify-between mx-auto w-full min-w-0 h-full"
-        href=" https://c2coder.github.io/Jaculus-libraries/libs/readline/">
-        <div class="flex flex-col h-full w-full flex-grow">
-            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Readline</h2>
-            <p class="dark:text-gray-300 text-gray-600 mb-2">Library for easily reading lines from standard input</p>
-        </div>
-    </a>
-    
-    <!-- Library Card - Servo -->
-    <a class="dark:bg-gray-800 flex flex-col bg-white p-4 rounded-lg shadow-md justify-between mx-auto w-full min-w-0 h-full"
-        href=" https://c2coder.github.io/Jaculus-libraries/libs/servo/">
-        <div class="flex flex-col h-full w-full flex-grow">
-            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Servo</h2>
-            <p class="dark:text-gray-300 text-gray-600 mb-2">Library for controlling servos</p>
-        </div>
-    </a>
-    
-    <!-- Library Card - Colors -->
-    <a class="dark:bg-gray-800 flex flex-col bg-white p-4 rounded-lg shadow-md justify-between mx-auto w-full min-w-0 h-full"
-        href=" https://c2coder.github.io/Jaculus-libraries/libs/colors/">
-        <div class="flex flex-col h-full w-full flex-grow">
-            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Colors</h2>
-            <p class="dark:text-gray-300 text-gray-600 mb-2">Library for handling colors</p>
-        </div>
-    </a>
-    
+        
+
+
 </div>
 
     </div>
