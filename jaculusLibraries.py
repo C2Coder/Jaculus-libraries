@@ -44,7 +44,7 @@ def generate(library_dir: str,static_dir: str, template_dir: str, build_dir: str
     url = f"https://{_cname}"
 
 
-    url = "http://localhost:8000" #TODO: temp
+    # url = "http://localhost:8000" #TODO: temp
 
     generate_web = GenerateWeb(manifestGen.libs, url, user, repo, manifest_name, library_dir, build_dir, build_libs_dir, os.path.abspath(template_dir), static_dir, verbose, compile_tailwind)
     generate_web.generate()

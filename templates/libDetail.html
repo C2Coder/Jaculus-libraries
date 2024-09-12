@@ -43,7 +43,7 @@
     {% for file in lib.files %}
     <div id="accordion-item"
       class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
-      <h2 class="mb-1 flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
         <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
           {{ file.name }}
           <div class="flex flex-grow"></div>
@@ -54,10 +54,10 @@
           <i class="my-auto fa fa-brands fa-github ml-2 "></i>
         </a>
       </h2>
-      
-      <div class="dark:text-gray-300 text-gray-600 ">
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
         <div id="accordion-body" class="hidden">
-          <pre class="rounded"><code class="language-typescript">{{ file.code }}</code></pre>
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">{{ file.code }}</code></pre>
         </div>
       </div>
     </div>
