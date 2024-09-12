@@ -4,33 +4,28 @@
 <head class="dark:bg-gray-800 bg-gray-200">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="https://c2coder.github.io/Jaculus-libraries/assets/logo.png">
-<link href="https://c2coder.github.io/Jaculus-libraries/style.css" rel="stylesheet" type="text/css" />
-<script src="https://c2coder.github.io/Jaculus-libraries/assets/js/preline.js"></script>
+    <link rel="icon" type="image/x-icon" href="http://localhost:8000/assets/logo.png">
+<link href="http://localhost:8000/style.css" rel="stylesheet" type="text/css" />
 
-<link rel="stylesheet" href="https://c2coder.github.io/Jaculus-libraries/assets/css/font-awesome-6.4.1.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="http://localhost:8000/assets/css/all.css">
 
 <!-- Prism.js one-dark theme -->
-<link href="https://c2coder.github.io/Jaculus-libraries/assets/css/prism-one-dark.css" rel="stylesheet">
-
-<!-- Prism.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
-<!-- Prism.js TypeScript support -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-typescript.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-bash.min.js"></script>
+<link href="http://localhost:8000/assets/css/prism-one-dark.css" rel="stylesheet">
     <title>Readline</title>
 </head>
 <body class="flex flex-col min-h-screen">
-    
-<header class="px-2 fixed top-0 left-0 right-0 z-50 w-full flex items-center justify-center flex-nowrap">
-    <nav class="mt-2 mx-2 py-2 px-4 md:py-4 md:px-6 lg:px-8 xl:mx-auto w-full relative bg-white border border-gray-200 rounded-[26px] md:flex md:items-center md:justify-between dark:bg-gray-800 dark:border-gray-700" aria-label="Global">
+    <header class="px-2 fixed top-0 left-0 right-0 z-50 w-full flex ">
+    <nav class="mt-2 p-3 md:p-4 w-full relative bg-white border border-gray-200 rounded-[18px] md:rounded-[22px] md:flex md:items-center md:justify-between dark:bg-gray-800 dark:border-gray-700" aria-label="Global">
+
         <div class="flex items-center justify-between">
-            <a class="inline-flex items-center gap-x-2 text-xl font-semibold dark:text-white" href="https://c2coder.github.io/Jaculus-libraries/">
-                <img class="w-12 h-auto" src="https://c2coder.github.io/Jaculus-libraries/assets/logo.png" alt="Logo">
-                <div class="hover:text-blue-600">
+            <a class="flex flex-row items-center gap-x-2 " href="http://localhost:8000/">
+                <img class="w-12 h-auto" src="http://localhost:8000/assets/logo.png" alt="Logo">
+                <h1 class="ml-1 text-xl w-fit font-semibold dark:text-white hover:text-blue-600">
                     Robotics Brno
-                </div>
+                </h1>
             </a>
+
             <div class="md:hidden">
                 <button type="button" class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-full border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
                     <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -42,8 +37,9 @@
                 </button>
             </div>
         </div>
+
         <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block">
-            <div class="flex mt-6 md:mt-0 md:pl-7 flex-col gap-y-4 gap-x-0 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-7">
+            <div class="flex max-sm:mt-6 max-sm:mb-2 md:pl-7 md:pr-2 flex-col gap-y-4 gap-x-0 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-7">
                 
                     
                     
@@ -60,7 +56,7 @@
                     
                         
                             <a class="font-medium md:py-4 text-gray-500 hover:text-gray-400 dark:text-gray-400 hover:text-gray-500"
-                               href="https://c2coder.github.io/Jaculus-libraries/libs"
+                               href="http://localhost:8000/libs"
                                >
                                 Libs
                             </a>
@@ -79,37 +75,33 @@
     </nav>
 </header>
     
-    <div class="mt-20 md:mt-28">
+    <div class="mt-[5.75rem] md:mt-[6.75rem]">
         
-<div class="mx-2 mt-2 ">
-    
-    <div class="flex flex-col gap-2 ">
-        <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
-            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Readline</h2>
-            <p class="dark:text-gray-300 text-gray-600 flex-grow">Library for easily reading lines from standard input</p>
-        </div>
+<div class="mx-2">
+  
+  <div class="flex flex-col gap-2 ">
 
-        <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
-            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Install command</h2>
-            <div class="">
-                <pre class="rounded"><code class="language-bash">curl -o src/libs/readline.ts https://c2coder.github.io/Jaculus-libraries/data/readline/readline.ts</code></pre>
-            </div>
-        </div>
-
+    <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="dark:text-white text-xl font-bold text-gray-800">Readline</h2>
+      <p class="dark:text-gray-300 text-gray-600 flex-grow">Library for easily reading lines from standard input</p>
     </div>
 
-    
-
-    <div class="mt-4 mb-2 p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
-        <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Examples:</h2>
+    <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="mb-1 dark:text-white text-xl font-bold text-gray-800">Install command</h2>
+      <div class="px-2">
+        <pre class="rounded"><code class="language-bash">curl -o src/libs/readline.ts http://localhost:8000/data/readline/readline.ts</code></pre>
+      </div>
     </div>
-    <div class="flex flex-col gap-2 w-full">
-        
-        <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
-            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Basic usage</h2>
-            
-            <div class="px-2">
-                <pre class="rounded"><code class="language-typescript">import { stdout } from &#34;stdio&#34;;
+  </div>
+
+  
+  <div class="mt-4 flex flex-col gap-2 w-full">
+    
+    <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Basic usage</h2>
+
+      <div class="px-2">
+        <pre class="rounded"><code class="language-typescript">import { stdout } from &#34;stdio&#34;;
 import { readline } from &#34;./libs/readline.js&#34;;
 
 //* řetězce
@@ -130,11 +122,126 @@ async function echo() {
 }
 
 echo();  // zavolá funkci echo</code></pre>
-            </div>
-                
-        </div>
-        
+      </div>
 
+    </div>
+    
+  </div>
+
+
+  
+  <div class="mt-4 p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+    <h2 class="dark:text-white text-xl font-bold text-gray-800">Source code:</h2>
+  </div>
+
+  <div class="accordion flex flex-col mt-2 gap-2" id="accordionCode">
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="mb-1 flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          readline.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/readline/readline.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+      
+      <div class="dark:text-gray-300 text-gray-600 ">
+        <div id="accordion-body" class="hidden">
+          <pre class="rounded"><code class="language-typescript">import { stdout, stdin } from &#34;stdio&#34;;
+
+/**
+ * A class for reading standard input line by line.
+ */
+
+export class readline {
+    private buffer: string = &#34;&#34;;
+    private promise: Promise&lt;string&gt; | null = null;
+    private resolve: ((value: string) =&gt; void) | null = null;
+    private reject: ((reason: any) =&gt; void) | null = null;
+    private closed: boolean = false;
+    private echo: boolean;
+
+    private onGet(str: string) {
+        if (this.echo) {
+            stdout.write(str);
+        }
+
+        if (str == &#34;\n&#34;) {
+            if (this.resolve) {
+                this.resolve(this.buffer);
+            }
+
+            this.buffer = &#34;&#34;;
+            this.promise = null;
+            this.resolve = null;
+            this.reject = null;
+
+            return;
+        }
+
+        this.buffer += str;
+
+        if (!this.closed) {
+            stdin.get()
+            .then((data) =&gt; this.onGet(data))
+            .catch((reason) =&gt; {
+                if (this.reject) {
+                    this.reject(reason);
+                }
+            });
+        }
+
+    }
+
+    constructor(echo: boolean = false) {
+        this.echo = echo;
+    }
+
+    public read(): Promise&lt;string&gt; {
+        if (this.promise != null) {
+            return Promise.reject(&#34;Already reading&#34;);
+        }
+
+        this.promise = new Promise((resolve, reject) =&gt; {
+            this.resolve = resolve;
+            this.reject = reject;
+        });
+
+        stdin.get()
+        .then((data) =&gt; this.onGet(data))
+        .catch((reason) =&gt; {
+            if (this.reject) {
+                this.reject(reason);
+            }
+        });
+
+        return this.promise;
+    }
+
+    public close() {
+        this.closed = true;
+
+        if (this.reject) {
+            this.reject(&#34;Stopped&#34;);
+        }
+
+        this.buffer = &#34;&#34;;
+        this.promise = null;
+        this.resolve = null;
+        this.reject = null;
+    }
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+  </div>
 
 </div>
 
@@ -152,7 +259,7 @@ echo();  // zavolá funkci echo</code></pre>
                 <h5 class="text-lg font-semibold">C2Coder</h5>
                 <p class="py-2">© 2024 All rights reserved.</p>
             </div>
-            <a href="https://github.com/C2Coder/Jaculus-library" target="_blank" class="ml-3 my-auto flex flex-row ">
+            <a href="https://github.com/C2Coder/Jaculus-libraries" target="_blank" class="ml-3 my-auto flex flex-row ">
 
                 <svg class="w-5 my-auto" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 496 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -166,5 +273,16 @@ echo();  // zavolá funkci echo</code></pre>
         </div>
     </div>
 </footer>
+    
+<script src="http://localhost:8000/assets/js/preline.js"></script>
+
+<script src="http://localhost:8000/assets/js/accordion.js"></script>
+
+<!-- Prism.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+<!-- Prism.js TypeScript support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-typescript.min.js"></script>
+<!-- Prism.js Bash support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-bash.min.js"></script>
 </body>
 </html>
