@@ -71,16 +71,16 @@ class GenerateWeb:
 
         self.generate_lib_manifest()
         self.copy_libs()
-        time.sleep(0.5) # Wait for the copy_libs to finish
-        self.generate_javascript()
-        self.generate_json_manifest()
-
+        
         self.generate_index()
         self.generate_libs_list()
         self.generate_lib_detail()
 
         if self.compile_tailwind:
             self.compile_tailwind_css()
+
+        self.generate_javascript()
+        self.generate_json_manifest()
 
     def clean(self):
         if os.path.exists(self.build_dir):
@@ -141,10 +141,19 @@ class GenerateWeb:
             for i, example in enumerate(lib.get("examples")):
                 with open(os.path.join(self.libs_dir, lib.get("folder"), example.get("file")), "r") as f:
                     lib["examples"][i]["code"] = f.read()
-            _str = ""
 
+            _tmp = []
+            for i, file in enumerate(lib.get("files")):
+                with open(os.path.join(self.libs_dir, lib.get("folder"), file), "r") as f:
+                    _tmp.append({"name": file, 
+                                 "code": f.read(),
+                                 "github": f"https://github.com/{self.user}/{self.repo}/blob/main/libraries/{lib.get('folder')}/{file}"
+                                 })
+            lib["files"] = _tmp
+
+            _str = ""
             for f in lib.get("files"):
-                _str += f"curl -o src/libs/{f} {self.url}/data/{lib.get('folder')}/{f}\n"
+                _str += f"curl -o src/libs/{f.get('name')} {self.url}/data/{lib.get('folder')}/{f.get('name')}\n"
             lib["install_bash"] = _str.strip()
 
             self.render_page('libDetail.html', self.paths.get("Lib").get("path").format(lib.get("folder")), lib=lib, now=now, user=self.user, repo=self.repo, url=self.url)

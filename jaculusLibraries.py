@@ -32,7 +32,7 @@ def generate(library_dir: str,static_dir: str, template_dir: str, build_dir: str
         package_json:dict = json.loads(f.read())
         print(f"Read package.json")
         _repository:str = package_json["repository"]
-        _repository = _repository.replace("git@github.com:", "")
+        _repository = _repository.replace("git@github.com:", "").replace("https://github.com/", "")
         user:str = _repository.split("/")[0]
         repo:str = _repository.split("/")[1].replace(".git", "")
 
@@ -42,6 +42,9 @@ def generate(library_dir: str,static_dir: str, template_dir: str, build_dir: str
     _cname = "c2coder.github.io/Jaculus-libraries" #TODO: temp
 
     url = f"https://{_cname}"
+
+
+    url = "http://localhost:8000" #TODO: temp
 
     generate_web = GenerateWeb(manifestGen.libs, url, user, repo, manifest_name, library_dir, build_dir, build_libs_dir, os.path.abspath(template_dir), static_dir, verbose, compile_tailwind)
     generate_web.generate()

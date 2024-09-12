@@ -9,4 +9,4 @@ serve:
 	python3 jaculusLibraries.py serve
 
 serve-no-livereload:
-	python3 jaculusLibraries.py serve --no-livereload
+	python3 jaculusLibraries.py serve --port 8088 --no-livereload

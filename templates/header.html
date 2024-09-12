@@ -1,13 +1,14 @@
-{#<header class="fixed top-0 md:justify-start md:flex-nowrap z-50 w-full text-sm">#}
-<header class="px-2 fixed top-0 left-0 right-0 z-50 w-full flex items-center justify-center flex-nowrap">
-    <nav class="mt-2 mx-2 py-2 px-4 md:py-4 md:px-6 lg:px-8 xl:mx-auto w-full relative bg-white border border-gray-200 rounded-[26px] md:flex md:items-center md:justify-between dark:bg-gray-800 dark:border-gray-700" aria-label="Global">
+<header class="px-2 fixed top-0 left-0 right-0 z-50 w-full flex ">
+    <nav class="mt-2 p-3 md:p-4 w-full relative bg-white border border-gray-200 rounded-[18px] md:rounded-[22px] md:flex md:items-center md:justify-between dark:bg-gray-800 dark:border-gray-700" aria-label="Global">
+
         <div class="flex items-center justify-between">
-            <a class="inline-flex items-center gap-x-2 text-xl font-semibold dark:text-white" href="{{url}}/">
+            <a class="flex flex-row items-center gap-x-2 " href="{{url}}/">
                 <img class="w-12 h-auto" src="{{url}}/assets/logo.png" alt="Logo">
-                <div class="hover:text-blue-600">
+                <h1 class="ml-1 text-xl w-fit font-semibold dark:text-white hover:text-blue-600">
                     Robotics Brno
-                </div>
+                </h1>
             </a>
+
             <div class="md:hidden">
                 <button type="button" class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-full border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
                     <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -19,8 +20,9 @@
                 </button>
             </div>
         </div>
+
         <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block">
-            <div class="flex mt-6 md:mt-0 md:pl-7 flex-col gap-y-4 gap-x-0 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-7">
+            <div class="flex max-sm:mt-6 max-sm:mb-2 md:pl-7 md:pr-2 flex-col gap-y-4 gap-x-0 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-7">
                 {% for key, value in paths.items() %}
                     {% set active_link = (key == active) %}
                     {% set path = value.path %}

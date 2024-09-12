@@ -1,41 +1,68 @@
 {% set title = lib.name %}
 {% extends "base.html" %}
 {% block content %}
-<div class="mx-2 mt-2 ">
-    {# lib top bar #}
-    <div class="flex flex-col gap-2 ">
-        <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
-            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">{{ lib.name }}</h2>
-            <p class="dark:text-gray-300 text-gray-600 flex-grow">{% if lib.description %}{{ lib.description }}{% else
-                %}No description{% endif %}</p>
-        </div>
+<div class="mx-2">
+  {# lib top bar #}
+  <div class="flex flex-col gap-2 ">
 
-        <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
-            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Install command</h2>
-            <div class="">
-                <pre class="rounded"><code class="language-bash">{{ lib.install_bash }}</code></pre>
-            </div>
-        </div>
-
+    <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="dark:text-white text-xl font-bold text-gray-800">{{ lib.name }}</h2>
+      <p class="dark:text-gray-300 text-gray-600 flex-grow">{% if lib.description %}{{ lib.description }}{% else
+        %}No description{% endif %}</p>
     </div>
 
-    {# Examples #}
-
-    <div class="mt-4 mb-2 p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
-        <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Examples:</h2>
+    <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="mb-1 dark:text-white text-xl font-bold text-gray-800">Install command</h2>
+      <div class="px-2">
+        <pre class="rounded"><code class="language-bash">{{ lib.install_bash }}</code></pre>
+      </div>
     </div>
-    <div class="flex flex-col gap-2 w-full">
-        {% for example in lib.examples %}
-        <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
-            <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">{{ example.name }}</h2>
-            
-            <div class="px-2">
-                <pre class="rounded"><code class="language-typescript">{{ example.code }}</code></pre>
-            </div>
-                
-        </div>
-        {% endfor %}
+  </div>
 
+  {# Examples #}
+  <div class="mt-4 flex flex-col gap-2 w-full">
+    {% for example in lib.examples %}
+    <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">{{ example.name }}</h2>
+
+      <div class="px-2">
+        <pre class="rounded"><code class="language-typescript">{{ example.code }}</code></pre>
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+
+
+  {# Source code #}
+  <div class="mt-4 p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+    <h2 class="dark:text-white text-xl font-bold text-gray-800">Source code:</h2>
+  </div>
+
+  <div class="accordion flex flex-col mt-2 gap-2" id="accordionCode">
+    {% for file in lib.files %}
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="mb-1 flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          {{ file.name }}
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="{{ file.github }}" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+      
+      <div class="dark:text-gray-300 text-gray-600 ">
+        <div id="accordion-body" class="hidden">
+          <pre class="rounded"><code class="language-typescript">{{ file.code }}</code></pre>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 
 </div>
 {% endblock %}

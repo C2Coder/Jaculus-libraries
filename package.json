@@ -2,7 +2,7 @@
   "name": "Jaculus-library",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:C2Coder/Jaculus-library.git",
+  "repository": "git@github.com:C2Coder/Jaculus-libraries.git",
   "author": "C2Coder",
   "license": "MIT",
   "dependencies": {
