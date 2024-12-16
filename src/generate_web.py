@@ -157,11 +157,14 @@ class GenerateWeb:
                                  })
             lib["files"] = _tmp
 
+            folder = "@types" if lib.get("folder") == "@types" else "@libs"
             _str = ""
             for f in lib.get("files"):
-                _str += f"curl -o src/libs/{f.get('name')} {self.url}/data/{
+                _str += f"curl -o src/{folder}/{f.get('name')} {self.url}/data/{
                     lib.get('folder')}/{f.get('name')}\n"
             lib["install_bash"] = _str.strip()
+            
+            lib["install_jlm"] = "jlm install " + lib.get("folder")
 
             self.render_page('libDetail.html', self.paths.get("Lib").get("path").format(
                 lib.get("folder")), lib=lib, now=now, user=self.user, repo=self.repo, url=self.url)
