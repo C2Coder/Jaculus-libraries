@@ -1,8 +1,0 @@
-name: Colors
-description: Library for handling colors
-files:
-  - colors.ts
-examples:
-  - 
-    name: Basic usage
-    file: examples/basic-usage.ts

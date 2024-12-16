@@ -1,6 +1,6 @@
 import os
-import yaml
 import shutil
+import json
 import time
 from datetime import datetime
 import os
@@ -10,13 +10,15 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape, Template
 import subprocess
 import logging
 
-from src.generators import GenerateJavascript, GenerateJsonManifests
+from src.types_helper import update_types
+from src.generators import GenerateJavascript
 from src.jinja_extensions.color_extension import ColorExtension
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 now = str(datetime.now().year)
+
 
 class GenerateWeb:
     def __init__(
@@ -69,9 +71,10 @@ class GenerateWeb:
 
         self.copy_static_files()
 
+        self.update_types()
         self.generate_lib_manifest()
         self.copy_libs()
-        
+
         self.generate_index()
         self.generate_libs_list()
         self.generate_lib_detail()
@@ -80,17 +83,16 @@ class GenerateWeb:
             self.compile_tailwind_css()
 
         self.generate_javascript()
-        self.generate_json_manifest()
 
     def clean(self):
         if os.path.exists(self.build_dir):
             shutil.rmtree(self.build_dir)
-        
+
         os.mkdir(self.build_dir)
         os.mkdir(self.build_libs_dir)
 
     def copy_static_files(self):
-        #TODO: not working
+        # TODO: not working
         if self.verbose:
             logger.info(f"Copying static files from {self.static_dir} to {self.build_dir}")
 
@@ -108,17 +110,22 @@ class GenerateWeb:
             # Assuming that your Tailwind CSS file is `./src/tailwind.css`
             # and you want to output to `./build/tailwind.css`.
             command = "npx tailwindcss -i css/style.css -o build/style.css"
-            process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+            process = subprocess.Popen(
+                command, shell=True, stdout=subprocess.PIPE)
             process.wait()
             print("Command executed successfully. Exit code:", process.returncode)
 
         except subprocess.CalledProcessError as e:
             print("An error occurred while executing the command. Error: ", e)
 
+    def update_types(self):
+        update_types(self.libs, self.libs_dir)
 
     def generate_lib_manifest(self):
-        with open(os.path.join(self.build_libs_dir, "manifest.yaml"), 'w') as f:
-            yaml.dump(self.libs, f)
+        print(f"Generating manifest.json")
+        print(self.libs)
+        with open(os.path.join(self.build_libs_dir, "manifest.json"), 'w') as f:
+            json.dump(self.libs, f, indent=4)
 
     def copy_libs(self):
         shutil.copytree(self.libs_dir, self.build_libs_dir, dirs_exist_ok=True)
@@ -126,18 +133,17 @@ class GenerateWeb:
     def generate_javascript(self):
         GenerateJavascript(self.libs_dir, self.build_libs_dir).generate()
 
-    def generate_json_manifest(self):
-        GenerateJsonManifests([lib.get("folder") for lib in self.libs], "manifest.yaml", self.libs_dir, self.build_dir, self.build_libs_dir).generate()
-
-    def generate_index(self): #TODO same as generate_libs_list
-        self.render_page('libs.html', self.paths.get("/").get("path"), libs=self.libs, num_of_libs=len(self.libs), now=now, user=self.user, repo=self.repo, url=self.url)
+    def generate_index(self):  # TODO same as generate_libs_list
+        self.render_page('libs.html', self.paths.get("/").get("path"), libs=self.libs,
+                         num_of_libs=len(self.libs), now=now, user=self.user, repo=self.repo, url=self.url)
 
     def generate_libs_list(self):
-        self.render_page('libs.html', self.paths.get("Libs").get("path"), libs=self.libs, num_of_libs=len(self.libs), now=now, user=self.user, repo=self.repo, url=self.url)
+        self.render_page('libs.html', self.paths.get("Libs").get("path"), libs=self.libs, num_of_libs=len(
+            self.libs), now=now, user=self.user, repo=self.repo, url=self.url)
 
     def generate_lib_detail(self):
         for lib in self.libs:
-            lib:dict
+            lib: dict
             for i, example in enumerate(lib.get("examples")):
                 with open(os.path.join(self.libs_dir, lib.get("folder"), example.get("file")), "r") as f:
                     lib["examples"][i]["code"] = f.read()
@@ -145,7 +151,7 @@ class GenerateWeb:
             _tmp = []
             for i, file in enumerate(lib.get("files")):
                 with open(os.path.join(self.libs_dir, lib.get("folder"), file), "r") as f:
-                    _tmp.append({"name": file, 
+                    _tmp.append({"name": file,
                                  "code": f.read(),
                                  "github": f"https://github.com/{self.user}/{self.repo}/blob/main/libraries/{lib.get('folder')}/{file}"
                                  })
@@ -153,10 +159,12 @@ class GenerateWeb:
 
             _str = ""
             for f in lib.get("files"):
-                _str += f"curl -o src/libs/{f.get('name')} {self.url}/data/{lib.get('folder')}/{f.get('name')}\n"
+                _str += f"curl -o src/libs/{f.get('name')} {self.url}/data/{
+                    lib.get('folder')}/{f.get('name')}\n"
             lib["install_bash"] = _str.strip()
 
-            self.render_page('libDetail.html', self.paths.get("Lib").get("path").format(lib.get("folder")), lib=lib, now=now, user=self.user, repo=self.repo, url=self.url)
+            self.render_page('libDetail.html', self.paths.get("Lib").get("path").format(
+                lib.get("folder")), lib=lib, now=now, user=self.user, repo=self.repo, url=self.url)
 
     def render_page(self, template_name: Union[str, "Template"], path_render: str, **kwargs):
         template = self.env.get_template(template_name)

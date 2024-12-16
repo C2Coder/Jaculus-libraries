@@ -1,6 +1,7 @@
 install:
 	pip3 install -r requirements.txt
 	npm install
+	npm audit fix
 
 generate:
 	python3 jaculusLibraries.py generate --compile-tailwind --verbose

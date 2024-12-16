@@ -24,14 +24,14 @@ make serve
 ## File structure
 ```
 data/
-├── manifest.yaml
+├── manifest.json
 ├── colors/
 │   ├── colors.ts
-│   ├── manifest.yaml
+│   ├── manifest.json
 │   └── examples/
 │       └── basic-usage.ts
 └── ...
 ```
 
-All filenames are in the manifest.yaml file <br>
-Every .ts and .yaml files are compiled to .js/.json files
+All filenames are in the manifest.json file <br>
+Every .ts file is compiled to .js file
