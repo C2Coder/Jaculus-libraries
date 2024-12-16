@@ -1,0 +1,1632 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head class="dark:bg-gray-800 bg-gray-200">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://c2coder.github.io/Jaculus-libraries/assets/logo.png">
+<link href="https://c2coder.github.io/Jaculus-libraries/style.css" rel="stylesheet" type="text/css" />
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://c2coder.github.io/Jaculus-libraries/assets/css/all.css">
+
+<!-- Prism.js one-dark theme -->
+<link href="https://c2coder.github.io/Jaculus-libraries/assets/css/prism-one-dark.css" rel="stylesheet">
+    <title>@types</title>
+</head>
+<body class="flex flex-col min-h-screen">
+    <header class="px-2 fixed top-0 left-0 right-0 z-50 w-full flex ">
+    <nav class="mt-2 p-3 md:p-4 w-full relative bg-white border border-gray-200 rounded-[18px] md:rounded-[22px] md:flex md:items-center md:justify-between dark:bg-gray-800 dark:border-gray-700" aria-label="Global">
+
+        <div class="flex items-center justify-between">
+            <a class="flex flex-row items-center gap-x-2 " href="https://c2coder.github.io/Jaculus-libraries/">
+                <img class="w-12 h-auto" src="https://c2coder.github.io/Jaculus-libraries/assets/logo.png" alt="Logo">
+                <h1 class="ml-1 text-xl w-fit font-semibold dark:text-white hover:text-blue-600">
+                    Robotics Brno
+                </h1>
+            </a>
+
+            <div class="md:hidden">
+                <button type="button" class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-full border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
+                    <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    <svg class="hs-collapse-open:block hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block">
+            <div class="flex max-sm:mt-6 max-sm:mb-2 md:pl-7 md:pr-2 flex-col gap-y-4 gap-x-0 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-7">
+                
+                    
+                    
+                    
+                    
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                        
+                            <a class="font-medium md:py-4 text-gray-500 hover:text-gray-400 dark:text-gray-400 hover:text-gray-500"
+                               href="https://c2coder.github.io/Jaculus-libraries/libs"
+                               >
+                                Libs
+                            </a>
+                        
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                
+            </div>
+        </div>
+    </nav>
+</header>
+    
+    <div class="mt-[5.75rem] md:mt-[6.75rem]">
+        
+<div class="mx-2">
+  
+  <div class="flex flex-col gap-2 ">
+
+    <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="dark:text-white text-xl font-bold text-gray-800">@types</h2>
+      <p class="dark:text-gray-300 text-gray-600 flex-grow">All types for Jaculus</p>
+    </div>
+
+    <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="mb-1 dark:text-white text-xl font-bold text-gray-800">Install command</h2>
+      <div class="px-2">
+        <pre class="rounded"><code class="language-bash">curl -o src/libs/basicStream.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/basicStream.d.ts
+curl -o src/libs/path.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/path.d.ts
+curl -o src/libs/smartled.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/smartled.d.ts
+curl -o src/libs/timers.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/timers.d.ts
+curl -o src/libs/fs.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/fs.d.ts
+curl -o src/libs/misc.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/misc.d.ts
+curl -o src/libs/simpleradio.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/simpleradio.d.ts
+curl -o src/libs/motor.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/motor.d.ts
+curl -o src/libs/pulseCounter.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/pulseCounter.d.ts
+curl -o src/libs/adc.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/adc.d.ts
+curl -o src/libs/timestamp.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/timestamp.d.ts
+curl -o src/libs/i2c.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/i2c.d.ts
+curl -o src/libs/wifi.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/wifi.d.ts
+curl -o src/libs/gridui.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/gridui.d.ts
+curl -o src/libs/keyvalue.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/keyvalue.d.ts
+curl -o src/libs/platform.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/platform.d.ts
+curl -o src/libs/ledc.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/ledc.d.ts
+curl -o src/libs/gpio.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/gpio.d.ts
+curl -o src/libs/stdio.d.ts https://c2coder.github.io/Jaculus-libraries/data/@types/stdio.d.ts</code></pre>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="mt-4 flex flex-col gap-2 w-full">
+    
+  </div>
+
+
+  
+  <div class="mt-4 p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+    <h2 class="dark:text-white text-xl font-bold text-gray-800">Source code:</h2>
+  </div>
+
+  <div class="accordion flex flex-col mt-2 gap-2" id="accordionCode">
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          basicStream.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/basicStream.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare interface Writable {
+    /**
+     * Write the given data to the stream.
+     * @param data The data to write.
+     */
+    write(data: string): void;
+}
+
+declare interface Readable {
+    /**
+     * Read a single character from the stream.
+     * @returns Promise that resolves to the character read.
+     */
+    get(): Promise&lt;string&gt;;
+
+    /**
+     * Read a chunk of data from the stream. The size of the chunk is
+     * given by the implementation and available data.
+     * @returns Promise that resolves to the data read.
+     */
+    read(): Promise&lt;string&gt;;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          path.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/path.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;path&#34; {
+    /**
+     * Normalize the given path.
+     * @param path The path to normalize.
+     * @returns The normalized path.
+     */
+    function normalize(path: string): string;
+
+    /**
+     * Get the parent directory of the given path.
+     * @param path The path to get the parent directory of.
+     * @returns The parent directory.
+     */
+    function dirname(path: string): string;
+
+    /**
+     * Get the last part of the given path.
+     * @param path The path to get the last part of.
+     * @returns The last part of the path.
+     */
+    function basename(path: string): string;
+
+    /**
+     * Join the given paths.
+     * @param paths The paths to join.
+     * @returns The joined path.
+     */
+    function join(...paths: string[]): string;
+
+    /**
+     * Check if the given path is absolute.
+     * @param path The path to check.
+     * @returns True if the path is absolute, false otherwise.
+     */
+    function isAbsolute(path: string): boolean;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          smartled.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/smartled.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;smartled&#34; {
+    interface Rgb {
+        r: number;
+        g: number;
+        b: number;
+    }
+
+    interface LedType {
+        T0H: number;
+        T1H: number;
+        T0L: number;
+        T1L: number;
+        TRS: number;
+    }
+
+    class SmartLed {
+        /**
+         * Create a new Smart LED strip.
+         * @param pin The pin the strip is connected to.
+         * @param count The number of LEDs in the strip.
+         * @param type The type of LED strip.
+         */
+        constructor(pin: number, count: number, type?: LedType);
+
+        /**
+         * Show the current buffer on the strip.
+         */
+        public show(): void;
+
+        /**
+         * Set the color of the given LED.
+         * @param index The index of the LED to set.
+         * @param rgb The color to set the LED to.
+         */
+        public set(index: number, rgb: Rgb): void;
+
+        /**
+         * Get the color of the given LED.
+         * @param index The index of the LED to get.
+         * @returns The color of the LED.
+         */
+        public get(index: number): Rgb;
+
+        /**
+         * Clear the buffer.
+         */
+        public clear(): void;
+    }
+
+    const LED_WS2812: LedType;
+    const LED_WS2812B: LedType;
+    const LED_WS2812B_2020: LedType;
+    const LED_SK6812: LedType;
+    const LED_WS2813: LedType;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          timers.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/timers.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">/**
+ * Returns a promise that resolves after the specified time.
+ * @param ms The number of milliseconds to wait before resolving the promise.
+ */
+declare function sleep(ms: number): Promise&lt;void&gt;;
+
+/**
+ * Calls a function after the specified time.
+ * @param callback The function to call.
+ * @param ms The number of milliseconds to wait before calling the function.
+ */
+declare function setTimeout(callback: () =&gt; void, ms: number): number;
+
+/**
+ * Calls a function repeatedly, with a fixed time delay between each call.
+ * @param callback The function to call.
+ * @param ms The number of milliseconds to wait before calling the function.
+ */
+declare function setInterval(callback: () =&gt; void, ms: number): number;
+
+/**
+ * Cancels a timeout previously established by calling setTimeout().
+ * @param id The identifier of the timeout to cancel.
+ */
+declare function clearTimeout(id: number): void;
+
+/**
+ * Cancels a timeout previously established by calling setInterval().
+ * @param id The identifier of the interval to cancel.
+ */
+declare function clearInterval(id: number): void;
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          fs.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/fs.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;fs&#34; {
+    interface File {
+        path: string;
+
+        /**
+         * Check if the file is open.
+         */
+        isOpen(): boolean;
+
+        /**
+         * Close the file.
+         */
+        close(): void;
+
+        /**
+         * Read characters from the file.
+         * @param len The number of characters to read.
+         */
+        read(len: number): string;
+
+        /**
+         * Write text to the file.
+         * @param text The text to write.
+         */
+        write(text: string): void;
+    }
+
+    /**
+     * Open the given file in the given mode.
+     * @param path The path to the file.
+     * @param mode The mode to open the file in (&#34;r&#34;, &#34;w&#34;, &#34;a&#34; and combinations).
+     */
+    function open(path: string, mode: string): File;
+
+    /**
+     * Check if the given path exists.
+     * @param path The path to check.
+     * @returns True if the path exists, false otherwise.
+     */
+    function exists(path: string): boolean;
+
+    /**
+     * Check if the given path is a file.
+     * @param path The path to check.
+     * @returns True if the path is a file, false otherwise.
+     */
+    function isFile(path: string): boolean;
+
+    /**
+     * Check if the given path is a directory.
+     * @param path The path to check.
+     * @returns True if the path is a directory, false otherwise.
+     */
+    function isDirectory(path: string): boolean;
+
+    /**
+     * Create a directory at the given path.
+     * @param path The path to create the directory at.
+     */
+    function mkdir(path: string): void;
+
+    /**
+     * Remove the file at the given path.
+     * @param path The path to the file to remove.
+     */
+    function rm(path: string): void;
+
+    /**
+     * Remove the directory at the given path.
+     * @param path The path to the directory to remove.
+     */
+    function rmdir(path: string): void;
+
+    /**
+     * List the files in the given directory.
+     * @param path The path to the directory to list.
+     * @returns An array of file names in the directory.
+     */
+    function readdir(path: string): string[];
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          misc.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/misc.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">/**
+ * Exits the current program.
+ * @param code The exit code to use.
+ */
+declare function exit(code?: number): void;
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          simpleradio.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/simpleradio.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;simpleradio&#34; {
+    type PacketDataType = &#34;number&#34; | &#34;string&#34; | &#34;keyvalue&#34;;
+
+    interface PacketInfo {
+        group: number;
+        address: string;
+        rssi: number;
+    }
+
+    /**
+     * Initialize the radio.
+     * @param group The radio group to use.
+     */
+    function begin(group: number): void;
+
+    /**
+     * Set the radio group.
+     * @param group The radio group to use, between 0 and 15 inclusive.
+     */
+    function setGroup(group: number): void;
+
+    /**
+     * Get current radio group
+     * @returns ID of the current group
+     */
+    function group(): number;
+
+    /**
+     * Get the local device address.
+     * @returns the local device address. Only works after begin() is called.
+     */
+    function address(): string;
+
+    /**
+     * Send a string.
+     * @param str The string to send.
+     */
+    function sendString(str: string): void;
+
+    /**
+     * Send a number.
+     * @param num The number to send.
+     */
+    function sendNumber(num: number): void;
+
+    /**
+     * Send a key-value pair.
+     * @param key The key to send.
+     * @param value The number to send.
+     */
+    function sendKeyValue(key: string, value: number): void;
+
+    /**
+     * Register a callback for a packet type.
+     * @param type The packet type to register for.
+     * @param callback The callback to register.
+     */
+    function on(type: &#34;number&#34;, callback: (num: number, info: PacketInfo) =&gt; void): void;
+
+    /**
+     * Register a callback for a packet type.
+     * @param type The packet type to register for.
+     * @param callback The callback to register.
+     */
+    function on(type: &#34;string&#34;, callback: (str: string, info: PacketInfo) =&gt; void): void;
+
+    /**
+     * Register a callback for a packet type.
+     * @param type The packet type to register for.
+     * @param callback The callback to register.
+     */
+    function on(type: &#34;keyvalue&#34;, callback: (key: string, value: number, info: PacketInfo) =&gt; void): void;
+
+    /**
+     * Unregister a callback for a packet type.
+     * @param type The packet type to unregister for.
+     */
+    function off(type: PacketDataType): void;
+
+    /**
+     * Stop the radio.
+     */
+    function end(): void;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          motor.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/motor.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;motor&#34; {
+
+    type MoveDuration = { distance: number; } | { time: number; } | { };
+
+    type MotorPins = {
+        motA: number;
+        motB: number;
+        encA: number;
+        encB: number;
+    };
+
+    type LedcConfig = {
+        timer: number;
+        channelA: number;
+        channelB: number;
+    };
+
+    class Motor {
+        /**
+         * Construc a new Motor instance
+         * @param options Motor configuration
+         * @note Units used in the circumference parameter determines the units used in the other methods
+         */
+        constructor(options: { pins: MotorPins, ledc: LedcConfig, encTicks: number, circumference: number });
+
+        /**
+         * Set the speed of the motor
+         * @param speed Speed in units per second
+         * @note The units are the same as used in the circumference parameter
+         */
+        setSpeed(speed: number): void;
+        // setRamp(ramp: number): void;
+
+        /**
+         * Move the motor
+         * @param duration Duration of the movement
+         * @note The units are the same as used in the circumference parameter
+         * @note If the duration is not provided, the motor will move indefinitely
+         */
+        move(duration?: MoveDuration): Promise&lt;void&gt;;
+
+        /**
+         * Stop the motor
+         * @param brake If true, the motor will brake, otherwise it will coast to a stop
+         */
+        stop(brake?: boolean): Promise&lt;void&gt;;
+
+        /**
+         * Get the position of the motor
+         * @note The units are the same as used in the circumference parameter
+         * @returns The position of the motor
+         */
+        getPosition(): number;
+
+        /**
+         * Close the motor
+         */
+        close(): void;
+    }
+
+    /* class Wheels {
+        constructor(options: {
+            left: MotorPins,
+            right: MotorPins,
+            encTicks: number,
+            diameter: number,
+            spacing: number
+        });
+        setSpeed(speed: number): void;
+        // setRamp(ramp: number): void;
+
+        move(curve: number, duration?: MoveDuration): Promise&lt;void&gt;;
+        // rotate(angle: number): Promise&lt;void&gt;;
+        stop(brake?: boolean): Promise&lt;void&gt;;
+        getPosition(): { left: number, right: number };
+
+        close(): void;
+    } */
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          pulseCounter.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/pulseCounter.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;pulseCounter&#34; {
+    type LevelAction = number;
+    type EdgeAction = number;
+
+    const LevelAction: {
+        Keep: LevelAction;
+        Inverse: LevelAction;
+        Hold: LevelAction;
+    };
+
+    const EdgeAction: {
+        Hold: EdgeAction;
+        Increase: EdgeAction;
+        Decrease: EdgeAction;
+    };
+
+    type LevelMode = {
+        low: LevelAction,
+        high: LevelAction,
+    }
+
+    type EdgeMode = {
+        pos: EdgeAction,
+        neg: EdgeAction,
+    }
+
+    class PulseCounter {
+        /**
+         * Create a new pulse counter instance.
+         * @param options The options for the pulse counter.
+         */
+        constructor(options: {
+            pinLevel: number,
+            pinEdge: number,
+            levelMode: LevelMode,
+            edgeMode: EdgeMode,
+        })
+
+        /**
+         * Read the current value of the pulse counter.
+         */
+        read(): number;
+
+        /**
+         * Reset the pulse counter to 0.
+         */
+        clear(): void;
+
+        /**
+         * Start the pulse counter.
+         */
+        start(): void;
+
+        /**
+         * Stop the pulse counter.
+         */
+        stop(): void;
+
+        /**
+         * Close the pulse counter.
+         */
+        close(): void;
+    }
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          adc.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/adc.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;adc&#34; {
+    type Atten = number;
+
+    const Attenuation: {
+        readonly Db0: Atten;
+        readonly Db2_5: Atten;
+        readonly Db6: Atten;
+        readonly Db11: Atten;
+    };
+
+
+    /**
+     * Enable ADC on the given pin.
+     * @param pin The pin to enable ADC on.
+     */
+    function configure(pin: number, attenuation?: Atten): void;
+
+    /**
+     * Read the value of the given pin.
+     * @param pin The pin to read.
+     * @returns The value of the pin (0-1023)
+     */
+    function read(pin: number): number;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          timestamp.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/timestamp.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare interface Timestamp {
+    /**
+     * Convert the timestamp to milliseconds.
+     */
+    millis(): number;
+
+    /**
+     * Get the lower 10^3 part of the timestamp in microseconds.
+     */
+    micros(): number;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          i2c.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/i2c.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;i2c&#34; {
+    interface I2C {
+        /**
+         * Find an I2C interface by its pin.
+         * @param pin The pin the I2C interface is connected to.
+         * @returns The I2C interface, or undefined if not found.
+         */
+        find(pin: number): I2C | undefined;
+
+        /**
+         * Read from the given address.
+         * @param address The address to read from.
+         * @param quantity The number of bytes to read.
+         * @returns The bytes read.
+         */
+        readFrom(address: number, quantity: number): Uint8Array;
+
+        /**
+         * Write to the given address.
+         * @param address The address to write to.
+         * @param buffer The data to write.
+         */
+        writeTo(address: number, buffer: ArrayBuffer | Uint8Array | number[] | string | number): void;
+
+        /**
+         * Setup the I2C interface.
+         * @param options The options to use when setting up the I2C interface.
+         */
+        setup(options: { scl?: number, sda?: number, bitrate?: number }): void;
+    }
+
+    const I2C1: I2C;
+    const I2C2: I2C | undefined;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          wifi.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/wifi.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;wifi&#34; {
+    /**
+    * Return current IPv4 of the device, or null if WiFi is disabled or not connected.
+    */
+    function currentIp(): string | null;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          gridui.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/gridui.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;gridui&#34; {
+    namespace widget {
+        interface Base {
+          readonly uuid: number
+          widgetX: number
+          widgetY: number
+          widgetW: number
+          widgetH: number
+          widgetTab: number
+          css(key: string): string
+          setCss(key: string, value: string): void
+        }
+      
+        interface Arm extends Base {
+            readonly x: number
+            readonly y: number
+        }
+
+        interface Bar extends Base {
+            color: string
+            fontSize: number
+            min: number
+            max: number
+            value: number
+            showValue: boolean
+        }
+
+        interface Button extends Base {
+            text: string
+            fontSize: number
+            color: string
+            background: string
+            align: string
+            valign: string
+            disabled: boolean
+            readonly pressed: boolean
+        }
+
+        interface Camera extends Base {
+            rotation: number
+            clip: boolean
+        }
+
+        interface Checkbox extends Base {
+            fontSize: number
+            checked: boolean
+            color: string
+            text: string
+        }
+
+        interface Circle extends Base {
+            color: string
+            fontSize: number
+            min: number
+            max: number
+            lineWidth: number
+            valueStart: number
+            value: number
+            showValue: boolean
+        }
+
+        interface Input extends Base {
+            text: string
+            color: string
+            type: string
+            disabled: boolean
+        }
+
+        interface Joystick extends Base {
+            color: string
+            keys: string
+            text: string
+            readonly x: number
+            readonly y: number
+        }
+
+        interface Led extends Base {
+            color: string
+            on: boolean
+        }
+
+        interface Orientation extends Base {
+            color: string
+            readonly yaw: number
+            readonly pitch: number
+            readonly roll: number
+            readonly joystickX: number
+            readonly joystickY: number
+        }
+
+        interface Select extends Base {
+            color: string
+            background: string
+            disabled: boolean
+            options: string
+            selectedIndex: number
+        }
+
+        interface Slider extends Base {
+            color: string
+            fontSize: number
+            min: number
+            max: number
+            value: number
+            precision: number
+            showValue: boolean
+        }
+
+        interface SpinEdit extends Base {
+            fontSize: number
+            color: string
+            value: number
+            step: number
+            precision: number
+        }
+
+        interface Switcher extends Base {
+            fontSize: number
+            color: string
+            value: number
+            min: number
+            max: number
+        }
+
+        interface Text extends Base {
+            text: string
+            fontSize: number
+            color: string
+            background: string
+            align: string
+            valign: string
+            prefix: string
+            suffix: string
+        }
+    }
+
+    namespace builder {
+        interface Base {
+            css(key: string, value: string): this
+        }
+
+        interface Arm extends Base {
+            info(info: Record&lt;string, any&gt;): Arm
+
+            onGrab(callback: (arm: widget.Arm) =&gt; void): Arm
+            onPositionChanged(callback: (arm: widget.Arm) =&gt; void): Arm
+
+            finish(): widget.Arm
+        }
+
+        interface Bar extends Base {
+            color(color: string): Bar
+            fontSize(fontSize: number): Bar
+            min(min: number): Bar
+            max(max: number): Bar
+            value(value: number): Bar
+            showValue(showValue: boolean): Bar
+
+            finish(): widget.Bar
+        }
+
+        interface Button extends Base {
+            text(text: string): Button
+            fontSize(fontSize: number): Button
+            color(color: string): Button
+            background(background: string): Button
+            align(align: string): Button
+            valign(valign: string): Button
+            disabled(disabled: boolean): Button
+
+            onPress(callback: (button: widget.Button) =&gt; void): Button
+            onRelease(callback: (button: widget.Button) =&gt; void): Button
+
+            finish(): widget.Button
+        }
+
+        interface Camera extends Base {
+            rotation(rotation: number): Camera
+            clip(clip: boolean): Camera
+            tags(tags: any /* TODO: fix type */): Camera
+
+            finish(): widget.Camera
+        }
+
+        interface Checkbox extends Base {
+            fontSize(fontSize: number): Checkbox
+            checked(checked: boolean): Checkbox
+            color(color: string): Checkbox
+            text(text: string): Checkbox
+
+            onChanged(callback: (checkbox: widget.Checkbox) =&gt; void): Checkbox
+
+            finish(): widget.Checkbox
+        }
+
+        interface Circle extends Base {
+            color(color: string): Circle
+            fontSize(fontSize: number): Circle
+            min(min: number): Circle
+            max(max: number): Circle
+            lineWidth(lineWidth: number): Circle
+            valueStart(valueStart: number): Circle
+            value(value: number): Circle
+            showValue(showValue: boolean): Circle
+
+            finish(): widget.Circle
+        }
+
+        interface Input extends Base {
+            text(text: string): Input
+            color(color: string): Input
+            type(type: string): Input
+            disabled(disabled: boolean): Input
+
+            onChanged(callback: (input: widget.Input) =&gt; void): Input
+
+            finish(): widget.Input
+        }
+
+        interface Joystick extends Base {
+            color(color: string): Joystick
+            keys(keys: string): Joystick
+            text(text: string): Joystick
+
+            onClick(callback: (joystick: widget.Joystick) =&gt; void): Joystick
+            onPositionChanged(callback: (joystick: widget.Joystick) =&gt; void): Joystick
+
+            finish(): widget.Joystick
+        }
+
+        interface Led extends Base {
+            color(color: string): Led
+            on(on: boolean): Led
+
+            finish(): widget.Led
+        }
+
+        interface Orientation extends Base {
+            color(color: string): Orientation
+
+            onPositionChanged(callback: (orientation: widget.Orientation) =&gt; void): Orientation
+
+            finish(): widget.Orientation
+        }
+
+        interface Select extends Base {
+            color(color: string): Select
+            background(background: string): Select
+            disabled(disabled: boolean): Select
+            options(options: string): Select
+            selectedIndex(selectedIndex: number): Select
+
+            onChanged(callback: (select: widget.Select) =&gt; void): Select
+
+            finish(): widget.Select
+        }
+
+        interface Slider extends Base {
+            color(color: string): Slider
+            fontSize(fontSize: number): Slider
+            min(min: number): Slider
+            max(max: number): Slider
+            value(value: number): Slider
+            precision(precision: number): Slider
+            showValue(showValue: boolean): Slider
+
+            onChanged(callback: (slider: widget.Slider) =&gt; void): Slider
+
+            finish(): widget.Slider
+        }
+
+        interface SpinEdit extends Base {
+            fontSize(fontSize: number): SpinEdit
+            color(color: string): SpinEdit
+            value(value: number): SpinEdit
+            step(step: number): SpinEdit
+            precision(precision: number): SpinEdit
+
+            onChanged(callback: (spinEdit: widget.SpinEdit) =&gt; void): SpinEdit
+
+            finish(): widget.SpinEdit
+        }
+
+        interface Switcher extends Base {
+            fontSize(fontSize: number): Switcher
+            color(color: string): Switcher
+            value(value: number): Switcher
+            min(min: number): Switcher
+            max(max: number): Switcher
+
+            onChanged(callback: (switcher: widget.Switcher) =&gt; void): Switcher
+
+            finish(): widget.Switcher
+        }
+
+        interface Text extends Base {
+            text(text: string): Text
+            fontSize(fontSize: number): Text
+            color(color: string): Text
+            background(background: string): Text
+            align(align: string): Text
+            valign(valign: string): Text
+            prefix(prefix: string): Text
+            suffix(suffix: string): Text
+
+            finish(): widget.Text
+        }
+    }
+
+    class Builder {
+        arm(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Arm
+        bar(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Bar
+        button(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Button
+        camera(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Camera
+        checkbox(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Checkbox
+        circle(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Circle
+        input(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Input
+        joystick(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Joystick
+        led(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Led
+        orientation(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Orientation
+        select(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Select
+        slider(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Slider
+        spinEdit(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.SpinEdit
+        switcher(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Switcher
+        text(x: number, y: number, w: number, h: number, uuid?: number, tab?: number): builder.Text
+    }
+
+    /**
+     * Initialize GridUI.
+     * @param ownerName name of the owner, must match the name entered in RBController app.
+     * @param deviceName name of this device, visible in the RBController app.
+     * @param builderCallback callback, which receives the builder instance that can be used to create widgets.
+     */
+    function begin(ownerName: string, deviceName: string, builderCallback: (builder: Builder) =&gt; void): void
+
+    /**
+     * Stop GridUI.
+     */
+    function end(): void
+
+    /**
+     * Set current tab index
+     */
+    function changeTab(index: number): void
+
+    /**
+     * Send a message to the integrated terminal at the top of the UI.
+     */
+    function log(message: string): void
+
+    /**
+     * Returns included GridUI version as number, to be compared with hex representation of the version.
+     * 
+     * For example, for version 5.1.0, do: `gridui.version() &gt;= 0x050100`
+     */
+    function version(): number
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          keyvalue.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/keyvalue.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;keyvalue&#34; {
+    class KeyValueNamespace {
+        /**
+         * Get saved value.
+         * @param key key, max 15 characters.
+         * @return saved value or null if not present
+         */
+        get(key: string): string | number | null;
+
+        /**
+         * Get string saved value.
+         * @param key key, max 15 characters.
+         * @return saved value or null if not present or if not string
+         */
+        getString(key: string): string | null;
+
+        /**
+         * Get number saved value.
+         * @param key key, max 15 characters.
+         * @return saved value or null if not present or if not number
+         */
+        getNumber(key: string): number | null;
+
+        /**
+         * Set value in KeyValue namespace, overwriting any previous value.
+         * Call commit() after setting everything, otherwise changes will be lost!
+         * @param key key, max 15 characters.
+         * @param value value
+         */
+        set(key: string, value: string | number): void;
+
+        /**
+         * Erase value from KeyValue namespace.
+         * Call commit() after setting everything, otherwise changes will be lost!
+         * @param key key, max 15 characters.
+         */
+        erase(key: string): void;
+
+        /**
+         * Check existance of a key.
+         * @param key key, max 15 characters.
+         * @returns true if exists, false otherwise
+         */
+        exists(key: string): boolean;
+
+        /**
+         * Save modifications to persistent storage.
+         */
+        commit(): void;
+    }
+
+    /**
+     * Open a KeyValue namespace for use. KeyValue is a persitent storage for small
+     * pieces of data that saves values across restarts.
+     *
+     * The namespaces are isolated from each other.
+     *
+     * @param namespace Namespace name, max 15 characters.
+     */
+    function open(namespace: string): KeyValueNamespace;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          platform.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/platform.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare const PlatformInfo: {
+    /**
+     * The name of the platform the program is running on.
+     */
+    name: string
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          ledc.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/ledc.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;ledc&#34; {
+    /**
+     * Configure the given timer.
+     * @param timer The timer to configure.
+     * @param frequency The frequency to configure the timer to.
+     * @param resolution The resolution to configure the timer to (default 10 bits, changes frequency range)
+     */
+    function configureTimer(timer: number, frequency: number, resolution?: number): void;
+
+    /**
+     * Configure the given LEDC channel.
+     * @param channel The channel to configure.
+     * @param pin The pin to configure the channel to.
+     * @param timer The timer to configure the channel to.
+     * @param duty The duty to configure the channel to (0-1023).
+     */
+    function configureChannel(channel: number, pin: number, timer: number, duty: number): void;
+
+    /**
+     * Set the frequency of the given timer.
+     * @param timer The timer to set the frequency of.
+     * @param frequency The frequency to set the timer to.
+     */
+    function setFrequency(timer: number, frequency: number): void;
+
+    /**
+     * Set the duty of the given channel.
+     * @param channel The channel to set the duty of.
+     * @param duty The duty to set the channel to (0-1023).
+     */
+    function setDuty(channel: number, duty: number): void;
+
+    /**
+     * Stop the given timer.
+     * @param timer The timer to stop.
+     */
+    function stopTimer(timer: number): void;
+
+    /**
+     * Stop the given channel.
+     * @param channel The channel to stop.
+     */
+    function stopChannel(channel: number): void;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          gpio.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/gpio.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;gpio&#34; {
+    const PinMode: {
+        readonly DISABLE: number,
+        readonly OUTPUT: number,
+        readonly INPUT: number,
+        readonly INPUT_PULLUP: number,
+        readonly INPUT_PULLDOWN: number,
+    };
+
+    interface EventInfo {
+        timestamp: Timestamp;
+    }
+
+    /**
+     * Configure the given pin.
+     * @param pin The pin to configure.
+     * @param mode The mode to configure the pin in.
+     */
+    function pinMode(pin: number, mode: number): void;
+
+    /**
+     * Write digital value to the given pin.
+     * @param pin The pin to write to.
+     * @param value The value to write.
+     */
+    function write(pin: number, value: number): void;
+
+    /**
+     * Read digital value from the given pin.
+     * @param pin The pin to read from.
+     * @returns The value of the pin (0 or 1).
+     */
+    function read(pin: number): number;
+
+    /**
+     * Set event handler for the given pin.
+     * @param event The event to handle.
+     * @param pin The pin to handle the event for.
+     * @param callback The callback to call when the event occurs.
+     */
+    function on(event: &#34;rising&#34; | &#34;falling&#34; | &#34;change&#34;, pin: number, callback: (info: EventInfo) =&gt; void): void;
+
+    /**
+     * Remove event handler for the given pin.
+     * @param event The event to remove.
+     * @param pin The pin to remove the event handler for.
+     */
+    function off(event: &#34;rising&#34; | &#34;falling&#34; | &#34;change&#34;, pin: number): void;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          stdio.d.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/@types/stdio.d.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">declare module &#34;stdio&#34; {
+    let stdout: Writable;
+    let stderr: Writable;
+    let stdin: Readable;
+}
+
+declare const console: {
+    debug(arg: any): void;
+    log(arg: any): void;
+    warn(arg: any): void;
+    info(arg: any): void;
+    error(arg: any): void;
+}
+</code></pre>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</div>
+
+    </div>
+
+    
+    <div class="mt-2 flex flex-grow">
+    </div>
+    
+    <!-- Footer -->
+<footer class="py-6 px-6 dark:bg-gray-800 bg-white">
+    <div class="sm:px-6 lg:px-8 container mx-auto max-w-7xl">
+        <div class="flex justify-between items-center">
+            <div class="text-center md:text-left text-gray-600 dark:text-gray-300">
+                <h5 class="text-lg font-semibold">C2Coder</h5>
+                <p class="py-2">© 2024 All rights reserved.</p>
+            </div>
+            <a href="https://github.com/C2Coder/Jaculus-libraries" target="_blank" class="ml-3 my-auto flex flex-row ">
+
+                <svg class="w-5 my-auto" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 496 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path fill="white"
+                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                </svg>
+                <p
+                    class="ml-2 my-auto dark:text-gray-300 dark:hover:text-gray-500 text-gray-600 hover:text-gray-800 rounded-md font-medium">
+                    Github</p>
+            </a>
+        </div>
+    </div>
+</footer>
+    
+<script src="https://c2coder.github.io/Jaculus-libraries/assets/js/preline.js"></script>
+
+<script src="https://c2coder.github.io/Jaculus-libraries/assets/js/accordion.js"></script>
+
+<!-- Prism.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+<!-- Prism.js TypeScript support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-typescript.min.js"></script>
+<!-- Prism.js Bash support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-bash.min.js"></script>
+</body>
+</html>

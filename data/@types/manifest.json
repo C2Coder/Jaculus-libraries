@@ -1,0 +1,27 @@
+{
+    "folder": "@types",
+    "name": "@types",
+    "description": "All types for Jaculus",
+    "files": [
+        "basicStream.d.ts",
+        "path.d.ts",
+        "smartled.d.ts",
+        "timers.d.ts",
+        "fs.d.ts",
+        "misc.d.ts",
+        "simpleradio.d.ts",
+        "motor.d.ts",
+        "pulseCounter.d.ts",
+        "adc.d.ts",
+        "timestamp.d.ts",
+        "i2c.d.ts",
+        "wifi.d.ts",
+        "gridui.d.ts",
+        "keyvalue.d.ts",
+        "platform.d.ts",
+        "ledc.d.ts",
+        "gpio.d.ts",
+        "stdio.d.ts"
+    ],
+    "examples": []
+}

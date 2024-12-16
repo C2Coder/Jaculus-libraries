@@ -1,91 +1,118 @@
 [
     {
-        "description": "Testing library",
+        "folder": "readline",
+        "name": "Readline",
+        "description": "Library for easily reading lines from standard input",
+        "files": [
+            "readline.ts"
+        ],
         "examples": [
             {
-                "file": "examples/basic-usage.ts",
-                "name": "Basic usage"
+                "name": "Basic usage",
+                "file": "examples/basic-usage.ts"
             }
+        ]
+    },
+    {
+        "folder": "VL53L0X",
+        "name": "VL53L0X",
+        "description": "Library for controlling VL53L0X distance sensor",
+        "files": [
+            "VL53L0X.ts"
         ],
+        "examples": [
+            {
+                "name": "Basic usage",
+                "file": "examples/basic-usage.ts"
+            }
+        ]
+    },
+    {
+        "folder": "servo",
+        "name": "Servo",
+        "description": "Library for controlling servos",
+        "files": [
+            "servo.ts"
+        ],
+        "examples": [
+            {
+                "name": "Basic usage",
+                "file": "examples/basic-usage.ts"
+            },
+            {
+                "name": "Multiple servos",
+                "file": "examples/multi-servo.ts"
+            }
+        ]
+    },
+    {
+        "folder": "robutek",
+        "name": "Robutek",
+        "description": "Library for controlling Robutek robot (Robocamp 2024)",
+        "files": [
+            "robutek.ts"
+        ],
+        "examples": [
+            {
+                "name": "Basic usage",
+                "file": "examples/basic-usage.ts"
+            }
+        ]
+    },
+    {
+        "folder": "test-library",
+        "name": "test-library",
+        "description": "Testing library",
         "files": [
             "test-lib-1.ts",
             "test-lib-2.ts"
         ],
-        "folder": "test-library",
-        "name": "test-library"
-    },
-    {
-        "description": "Library for controlling VL53L0X distance sensor",
         "examples": [
             {
-                "file": "examples/basic-usage.ts",
-                "name": "Basic usage"
+                "name": "Basic usage",
+                "file": "examples/basic-usage.ts"
             }
-        ],
-        "files": [
-            "VL53L0X.ts"
-        ],
-        "folder": "VL53L0X",
-        "name": "VL53L0X"
+        ]
     },
     {
-        "description": "Library for controlling Robutek robot (Robocamp 2024)",
-        "examples": [
-            {
-                "file": "examples/basic-usage.ts",
-                "name": "Basic usage"
-            }
-        ],
+        "folder": "@types",
+        "name": "@types",
+        "description": "All types for Jaculus",
         "files": [
-            "robutek.ts"
+            "basicStream.d.ts",
+            "path.d.ts",
+            "smartled.d.ts",
+            "timers.d.ts",
+            "fs.d.ts",
+            "misc.d.ts",
+            "simpleradio.d.ts",
+            "motor.d.ts",
+            "pulseCounter.d.ts",
+            "adc.d.ts",
+            "timestamp.d.ts",
+            "i2c.d.ts",
+            "wifi.d.ts",
+            "gridui.d.ts",
+            "keyvalue.d.ts",
+            "platform.d.ts",
+            "ledc.d.ts",
+            "gpio.d.ts",
+            "stdio.d.ts"
         ],
-        "folder": "robutek",
-        "name": "Robutek"
+        "examples": []
     },
     {
-        "description": "Library for easily reading lines from standard input",
-        "examples": [
-            {
-                "file": "examples/basic-usage.ts",
-                "name": "Basic usage"
-            }
-        ],
-        "files": [
-            "readline.ts"
-        ],
-        "folder": "readline",
-        "name": "Readline"
-    },
-    {
-        "description": "Library for controlling servos",
-        "examples": [
-            {
-                "file": "examples/basic-usage.ts",
-                "name": "Basic usage"
-            },
-            {
-                "file": "examples/multi-servo.ts",
-                "name": "Multiple servos"
-            }
-        ],
-        "files": [
-            "servo.ts"
-        ],
-        "folder": "servo",
-        "name": "Servo"
-    },
-    {
+        "folder": "colors",
+        "name": "Colors",
         "description": "Library for handling colors",
-        "examples": [
-            {
-                "file": "examples/basic-usage.ts",
-                "name": "Basic usage"
-            }
-        ],
         "files": [
             "colors.ts"
         ],
-        "folder": "colors",
-        "name": "Colors"
+        "examples": [
+            {
+                "name": "Basic usage",
+                "file": "examples/basic-usage.ts"
+            }
+        ]
     }
 ]

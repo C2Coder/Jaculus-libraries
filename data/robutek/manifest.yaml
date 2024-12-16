@@ -1,8 +1,0 @@
-name: Robutek
-description: Library for controlling Robutek robot (Robocamp 2024)
-files:
-  - robutek.ts
-examples:
-  - 
-    name: Basic usage
-    file: examples/basic-usage.ts
