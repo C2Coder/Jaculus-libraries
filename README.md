@@ -1,6 +1,14 @@
 # Jaculus-libraries
 Jaculus repository for all libraries
 
+## Links
+
+[Jaculus homepage](https://jaculus.org/)
+
+[Jaculus Library Manager](https://github.com/C2Coder/Jaculus-library-manager)
+
+[JacLy (Blocky enviroment)](https://c2coder.github.io/JacLy/)
+
 ## Dev
 
 ### Install
