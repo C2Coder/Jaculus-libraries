@@ -1,6 +1,8 @@
 # Jaculus-libraries
 Jaculus repository for all libraries
 
+Jaculus version: 0.0.15
+
 ## Links
 
 [Jaculus homepage](https://jaculus.org/)
