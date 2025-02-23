@@ -1,33 +1,5 @@
 [
     {
-        "folder": "readline",
-        "name": "Readline",
-        "description": "Library for easily reading lines from standard input",
-        "files": [
-            "readline.ts"
-        ],
-        "examples": [
-            {
-                "name": "Basic usage",
-                "file": "examples/basic-usage.ts"
-            }
-        ]
-    },
-    {
-        "folder": "VL53L0X",
-        "name": "VL53L0X",
-        "description": "Library for controlling VL53L0X distance sensor",
-        "files": [
-            "VL53L0X.ts"
-        ],
-        "examples": [
-            {
-                "name": "Basic usage",
-                "file": "examples/basic-usage.ts"
-            }
-        ]
-    },
-    {
         "folder": "servo",
         "name": "Servo",
         "description": "Library for controlling servos",
@@ -42,20 +14,6 @@
             {
                 "name": "Multiple servos",
                 "file": "examples/multi-servo.ts"
-            }
-        ]
-    },
-    {
-        "folder": "robutek",
-        "name": "Robutek",
-        "description": "Library for controlling Robutek robot (Robocamp 2024)",
-        "files": [
-            "robutek.ts"
-        ],
-        "examples": [
-            {
-                "name": "Basic usage",
-                "file": "examples/basic-usage.ts"
             }
         ]
     },
@@ -79,27 +37,69 @@
         "name": "@types",
         "description": "All types for Jaculus",
         "files": [
-            "basicStream.d.ts",
-            "path.d.ts",
+            "gridui.d.ts",
+            "gpio.d.ts",
+            "keyvalue.d.ts",
             "smartled.d.ts",
-            "timers.d.ts",
-            "fs.d.ts",
+            "adc.d.ts",
+            "path.d.ts",
+            "wifi.d.ts",
+            "ledc.d.ts",
+            "stdio.d.ts",
+            "pulseCounter.d.ts",
             "misc.d.ts",
             "simpleradio.d.ts",
-            "motor.d.ts",
-            "pulseCounter.d.ts",
-            "adc.d.ts",
-            "timestamp.d.ts",
             "i2c.d.ts",
-            "wifi.d.ts",
-            "gridui.d.ts",
-            "keyvalue.d.ts",
-            "platform.d.ts",
-            "ledc.d.ts",
-            "gpio.d.ts",
-            "stdio.d.ts"
+            "timers.d.ts",
+            "basicStream.d.ts",
+            "motor.d.ts",
+            "timestamp.d.ts",
+            "fs.d.ts",
+            "platform.d.ts"
         ],
         "examples": []
+    },
+    {
+        "folder": "readline",
+        "name": "Readline",
+        "description": "Library for easily reading lines from standard input",
+        "files": [
+            "readline.ts"
+        ],
+        "examples": [
+            {
+                "name": "Basic usage",
+                "file": "examples/basic-usage.ts"
+            }
+        ]
+    },
+    {
+        "folder": "robutek",
+        "name": "Robutek",
+        "description": "Library for controlling Robutek robot (Robocamp 2024)",
+        "files": [
+            "robutek.ts"
+        ],
+        "examples": [
+            {
+                "name": "Basic usage",
+                "file": "examples/basic-usage.ts"
+            }
+        ]
+    },
+    {
+        "folder": "VL53L0X",
+        "name": "VL53L0X",
+        "description": "Library for controlling VL53L0X distance sensor",
+        "files": [
+            "VL53L0X.ts"
+        ],
+        "examples": [
+            {
+                "name": "Basic usage",
+                "file": "examples/basic-usage.ts"
+            }
+        ]
     },
     {
         "folder": "colors",
