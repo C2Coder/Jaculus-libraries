@@ -1,23 +1,5 @@
 [
     {
-        "folder": "servo",
-        "name": "Servo",
-        "description": "Library for controlling servos",
-        "files": [
-            "servo.ts"
-        ],
-        "examples": [
-            {
-                "name": "Basic usage",
-                "file": "examples/basic-usage.ts"
-            },
-            {
-                "name": "Multiple servos",
-                "file": "examples/multi-servo.ts"
-            }
-        ]
-    },
-    {
         "folder": "test-library",
         "name": "test-library",
         "description": "Testing library",
@@ -33,33 +15,6 @@
         ]
     },
     {
-        "folder": "@types",
-        "name": "@types",
-        "description": "All types for Jaculus",
-        "files": [
-            "gridui.d.ts",
-            "gpio.d.ts",
-            "keyvalue.d.ts",
-            "smartled.d.ts",
-            "adc.d.ts",
-            "path.d.ts",
-            "wifi.d.ts",
-            "ledc.d.ts",
-            "stdio.d.ts",
-            "pulseCounter.d.ts",
-            "misc.d.ts",
-            "simpleradio.d.ts",
-            "i2c.d.ts",
-            "timers.d.ts",
-            "basicStream.d.ts",
-            "motor.d.ts",
-            "timestamp.d.ts",
-            "fs.d.ts",
-            "platform.d.ts"
-        ],
-        "examples": []
-    },
-    {
         "folder": "readline",
         "name": "Readline",
         "description": "Library for easily reading lines from standard input",
@@ -72,6 +27,47 @@
                 "file": "examples/basic-usage.ts"
             }
         ]
+    },
+    {
+        "folder": "colors",
+        "name": "Colors",
+        "description": "Library for handling colors",
+        "files": [
+            "colors.ts"
+        ],
+        "examples": [
+            {
+                "name": "Basic usage",
+                "file": "examples/basic-usage.ts"
+            }
+        ]
+    },
+    {
+        "folder": "@types",
+        "name": "@types",
+        "description": "All types for Jaculus",
+        "files": [
+            "platform.d.ts",
+            "motor.d.ts",
+            "basicStream.d.ts",
+            "stdio.d.ts",
+            "timers.d.ts",
+            "smartled.d.ts",
+            "gridui.d.ts",
+            "simpleradio.d.ts",
+            "keyvalue.d.ts",
+            "misc.d.ts",
+            "adc.d.ts",
+            "ledc.d.ts",
+            "pulseCounter.d.ts",
+            "path.d.ts",
+            "wifi.d.ts",
+            "fs.d.ts",
+            "timestamp.d.ts",
+            "gpio.d.ts",
+            "i2c.d.ts"
+        ],
+        "examples": []
     },
     {
         "folder": "robutek",
@@ -102,16 +98,20 @@
         ]
     },
     {
-        "folder": "colors",
-        "name": "Colors",
-        "description": "Library for handling colors",
+        "folder": "servo",
+        "name": "Servo",
+        "description": "Library for controlling servos",
         "files": [
-            "colors.ts"
+            "servo.ts"
         ],
         "examples": [
             {
                 "name": "Basic usage",
                 "file": "examples/basic-usage.ts"
+            },
+            {
+                "name": "Multiple servos",
+                "file": "examples/multi-servo.ts"
             }
         ]
     }
