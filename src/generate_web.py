@@ -160,7 +160,7 @@ class GenerateWeb:
             folder = "@types" if lib.get("folder") == "@types" else "@libs"
             _str = ""
             for f in lib.get("files"):
-                _str += f"curl -o src/{folder}/{f.get('name')} {self.url}/data/{
+                _str += f"curl -o ./{folder}/{f.get('name')} {self.url}/data/{
                     lib.get('folder')}/{f.get('name')}\n"
             lib["install_bash"] = _str.strip()
             
