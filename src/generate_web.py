@@ -10,7 +10,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape, Template
 import subprocess
 import logging
 
-from src.types_helper import update_types
+from src.update_helper import update_libs
 from src.generators import GenerateJavascript
 from src.jinja_extensions.color_extension import ColorExtension
 
@@ -71,7 +71,7 @@ class GenerateWeb:
 
         self.copy_static_files()
 
-        self.update_types()
+        self.update_libs()
         self.generate_lib_manifest()
         self.copy_libs()
 
@@ -118,8 +118,8 @@ class GenerateWeb:
         except subprocess.CalledProcessError as e:
             print("An error occurred while executing the command. Error: ", e)
 
-    def update_types(self):
-        update_types(self.libs, self.libs_dir)
+    def update_libs(self):
+        update_libs(self.libs, self.libs_dir)
 
     def generate_lib_manifest(self):
         print(f"Generating manifest.json")

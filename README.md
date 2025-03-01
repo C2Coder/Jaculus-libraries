@@ -1,7 +1,10 @@
 # Jaculus-libraries
 Jaculus repository for all libraries
 
-Jaculus version: 0.0.15
+Jaculus version: 0.0.16
+
+## Warning
+This repo doesnt 100% contain latest libs, for the latest, generate the web.
 
 ## Links
 
