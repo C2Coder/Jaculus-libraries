@@ -33,11 +33,11 @@ def update_libs(libs:list, libs_dir:str):
     time.sleep(2)
     lib_folders = {
         "@types":"Jaculus-esp32/ts-examples/@types",
-        "servo":"Robutek/docs/robutekLibrary/Robutek-library/src/libs",
-        "readline" : "Robutek/docs/robutekLibrary/Robutek-library/src/libs",
-        "colors" : "Robutek/docs/robutekLibrary/Robutek-library/src/libs",
-        "VL53L0X" : "Robutek/docs/robutekLibrary/Robutek-library/src/libs",
-        "robutek" : "Robutek/docs/robutekLibrary/Robutek-library/src/libs",
+        "servo":"Robutek/robutekLibrary/src/libs",
+        "readline" : "Robutek/robutekLibrary/src/libs",
+        "colors" : "Robutek/robutekLibrary/src/libs",
+        "VL53L0X" : "Robutek/robutekLibrary/src/libs",
+        "robutek" : "Robutek/robutekLibrary/src/libs",
     }
 
     for lib in libs:
