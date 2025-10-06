@@ -1,11 +1,10 @@
 [
     {
-        "folder": "test-library",
-        "name": "test-library",
-        "description": "Testing library",
+        "folder": "VL53L0X",
+        "name": "VL53L0X",
+        "description": "Library for controlling VL53L0X distance sensor",
         "files": [
-            "test-lib-1.ts",
-            "test-lib-2.ts"
+            "VL53L0X.ts"
         ],
         "examples": [
             {
@@ -43,29 +42,47 @@
         ]
     },
     {
+        "folder": "servo",
+        "name": "Servo",
+        "description": "Library for controlling servos",
+        "files": [
+            "servo.ts"
+        ],
+        "examples": [
+            {
+                "name": "Basic usage",
+                "file": "examples/basic-usage.ts"
+            },
+            {
+                "name": "Multiple servos",
+                "file": "examples/multi-servo.ts"
+            }
+        ]
+    },
+    {
         "folder": "@types",
         "name": "@types",
         "description": "All types for Jaculus",
         "files": [
-            "platform.d.ts",
-            "motor.d.ts",
-            "basicStream.d.ts",
-            "stdio.d.ts",
+            "i2c.d.ts",
             "timers.d.ts",
-            "smartled.d.ts",
-            "gridui.d.ts",
-            "simpleradio.d.ts",
+            "motor.d.ts",
             "keyvalue.d.ts",
-            "misc.d.ts",
-            "adc.d.ts",
-            "ledc.d.ts",
-            "pulseCounter.d.ts",
-            "path.d.ts",
             "wifi.d.ts",
-            "fs.d.ts",
-            "timestamp.d.ts",
+            "pulseCounter.d.ts",
+            "ledc.d.ts",
+            "adc.d.ts",
+            "path.d.ts",
             "gpio.d.ts",
-            "i2c.d.ts"
+            "timestamp.d.ts",
+            "misc.d.ts",
+            "platform.d.ts",
+            "gridui.d.ts",
+            "basicStream.d.ts",
+            "simpleradio.d.ts",
+            "smartled.d.ts",
+            "fs.d.ts",
+            "stdio.d.ts"
         ],
         "examples": []
     },
@@ -84,34 +101,17 @@
         ]
     },
     {
-        "folder": "VL53L0X",
-        "name": "VL53L0X",
-        "description": "Library for controlling VL53L0X distance sensor",
+        "folder": "test-library",
+        "name": "test-library",
+        "description": "Testing library",
         "files": [
-            "VL53L0X.ts"
+            "test-lib-1.ts",
+            "test-lib-2.ts"
         ],
         "examples": [
             {
                 "name": "Basic usage",
                 "file": "examples/basic-usage.ts"
-            }
-        ]
-    },
-    {
-        "folder": "servo",
-        "name": "Servo",
-        "description": "Library for controlling servos",
-        "files": [
-            "servo.ts"
-        ],
-        "examples": [
-            {
-                "name": "Basic usage",
-                "file": "examples/basic-usage.ts"
-            },
-            {
-                "name": "Multiple servos",
-                "file": "examples/multi-servo.ts"
             }
         ]
     }

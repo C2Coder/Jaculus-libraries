@@ -10,6 +10,15 @@ export class VL53L0X {
         this.ad = 0x52 >> 1;
         this.init();
     }
+    /**
+     * Set a new I2C address for the sensor.
+     * @note Config is not persistant through power cycle.
+     * @param newAddress The new I2C address to set.
+     */
+    setAddress(newAddress) {
+        this.w(0x8A, newAddress & 0x7F);
+        this.ad = newAddress;
+    }
     /** initialise VL53L0X */
     init() {
         this.w(0x80, 0x01);

@@ -55,3 +55,11 @@ export const purple = rainbow(285);
 export const pink = rainbow(323);
 export const white = { r: 100, g: 100, b: 100 };
 export const off = { r: 0, g: 0, b: 0 };
+export function sensorDataToRGB(data) {
+    const [r, g, b] = data;
+    return {
+        r: r * 255,
+        g: g * 255,
+        b: b * 255
+    };
+}

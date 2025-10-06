@@ -2,89 +2,62 @@ import * as adc from "adc";
 import * as gpio from "gpio";
 import * as motor from "motor";
 import * as ledc from "ledc";
+import { DifferentialDrive } from "./differentialDrive.js";
 const robutekDiameter = 83; // mm
 const wheelDiameter = 33.3; // mm
 const wheelCircumference = Math.PI * wheelDiameter;
-export var PenPos;
-(function (PenPos) {
-    PenPos[PenPos["Down"] = 562] = "Down";
-    PenPos[PenPos["Up"] = 332] = "Up";
-    PenPos[PenPos["Unload"] = 150] = "Unload";
-})(PenPos || (PenPos = {}));
-export var Pins;
-(function (Pins) {
-    Pins[Pins["StatusLED"] = 46] = "StatusLED";
-    // Jedna na desce a zároveň vývod pro pásek,
-    // po připojení externího pásku se tedy jedná
-    // o 8 + 1 = 9 diod celkem
-    Pins[Pins["ILED"] = 48] = "ILED";
-    Pins[Pins["ButtonLeft"] = 2] = "ButtonLeft";
-    Pins[Pins["ButtonRight"] = 0] = "ButtonRight";
-    Pins[Pins["Servo1"] = 21] = "Servo1";
-    Pins[Pins["Servo2"] = 38] = "Servo2";
-    Pins[Pins["Sens1"] = 4] = "Sens1";
-    Pins[Pins["Sens2"] = 5] = "Sens2";
-    Pins[Pins["Sens3"] = 6] = "Sens3";
-    Pins[Pins["Sens4"] = 7] = "Sens4";
-    Pins[Pins["SensSW"] = 8] = "SensSW";
-    Pins[Pins["SensEN"] = 47] = "SensEN";
-    Pins[Pins["Motor1A"] = 11] = "Motor1A";
-    Pins[Pins["Motor1B"] = 12] = "Motor1B";
-    Pins[Pins["Motor2A"] = 45] = "Motor2A";
-    Pins[Pins["Motor2B"] = 13] = "Motor2B";
-    Pins[Pins["Enc1A"] = 39] = "Enc1A";
-    Pins[Pins["Enc1B"] = 40] = "Enc1B";
-    Pins[Pins["Enc2A"] = 42] = "Enc2A";
-    Pins[Pins["Enc2B"] = 41] = "Enc2B";
-})(Pins || (Pins = {}));
-let sw = 0;
-function switchSensors(toValue) {
-    if (toValue == sw) {
-        return;
-    }
-    sw = toValue;
-    gpio.write(Pins.SensSW, toValue);
-    // don't do this at home
-    const start = Date.now();
-    while (Date.now() - start < 2)
-        ;
-}
-export function readSensor(sensor) {
-    switch (sensor) {
-        case "WheelFR" /* SensorType.WheelFR */:
-            switchSensors(0);
-            return adc.read(Pins.Sens1);
-        case "WheelFL" /* SensorType.WheelFL */:
-            switchSensors(0);
-            return adc.read(Pins.Sens2);
-        case "WheelBL" /* SensorType.WheelBL */:
-            switchSensors(0);
-            return adc.read(Pins.Sens3);
-        case "WheelBR" /* SensorType.WheelBR */:
-            switchSensors(0);
-            return adc.read(Pins.Sens4);
-        case "LineFR" /* SensorType.LineFR */:
-            switchSensors(1);
-            return adc.read(Pins.Sens1);
-        case "LineFL" /* SensorType.LineFL */:
-            switchSensors(1);
-            return adc.read(Pins.Sens2);
-        case "LineBL" /* SensorType.LineBL */:
-            switchSensors(1);
-            return adc.read(Pins.Sens3);
-        case "LineBR" /* SensorType.LineBR */:
-            switchSensors(1);
-            return adc.read(Pins.Sens4);
-        default:
-            throw new Error('Invalid sensor type');
-    }
-}
-ledc.configureTimer(0, 64000, 10);
-const leftMotorPins = { motA: Pins.Motor1A, motB: Pins.Motor1B, encA: Pins.Enc1A, encB: Pins.Enc1B };
-const rightMotorPins = { motA: Pins.Motor2A, motB: Pins.Motor2B, encA: Pins.Enc2A, encB: Pins.Enc2B };
-const leftMotorLedc = { timer: 0, channelA: 0, channelB: 1 };
-const rightMotorLedc = { timer: 0, channelA: 2, channelB: 3 };
-const reg = {
+var PinsV1;
+(function (PinsV1) {
+    PinsV1[PinsV1["StatusLED"] = 46] = "StatusLED";
+    // The first LED of the strip is on the board, the LED strip
+    // connected to the ILED connector has indexes offset by 1.
+    PinsV1[PinsV1["ILED"] = 48] = "ILED";
+    PinsV1[PinsV1["ButtonLeft"] = 2] = "ButtonLeft";
+    PinsV1[PinsV1["ButtonRight"] = 0] = "ButtonRight";
+    PinsV1[PinsV1["Servo1"] = 21] = "Servo1";
+    PinsV1[PinsV1["Servo2"] = 38] = "Servo2";
+    PinsV1[PinsV1["Sens1"] = 5] = "Sens1";
+    PinsV1[PinsV1["Sens2"] = 4] = "Sens2";
+    PinsV1[PinsV1["Sens3"] = 6] = "Sens3";
+    PinsV1[PinsV1["Sens4"] = 7] = "Sens4";
+    PinsV1[PinsV1["SensSW"] = 8] = "SensSW";
+    PinsV1[PinsV1["SensEN"] = 47] = "SensEN";
+    PinsV1[PinsV1["Motor1A"] = 11] = "Motor1A";
+    PinsV1[PinsV1["Motor1B"] = 12] = "Motor1B";
+    PinsV1[PinsV1["Motor2A"] = 45] = "Motor2A";
+    PinsV1[PinsV1["Motor2B"] = 13] = "Motor2B";
+    PinsV1[PinsV1["Enc1A"] = 39] = "Enc1A";
+    PinsV1[PinsV1["Enc1B"] = 40] = "Enc1B";
+    PinsV1[PinsV1["Enc2A"] = 42] = "Enc2A";
+    PinsV1[PinsV1["Enc2B"] = 41] = "Enc2B";
+})(PinsV1 || (PinsV1 = {}));
+var PinsV2;
+(function (PinsV2) {
+    PinsV2[PinsV2["StatusLED"] = 46] = "StatusLED";
+    PinsV2[PinsV2["ILED"] = 48] = "ILED";
+    PinsV2[PinsV2["ILEDConnector"] = 36] = "ILEDConnector";
+    PinsV2[PinsV2["ButtonLeft"] = 2] = "ButtonLeft";
+    PinsV2[PinsV2["ButtonRight"] = 0] = "ButtonRight";
+    PinsV2[PinsV2["Servo1"] = 21] = "Servo1";
+    PinsV2[PinsV2["Servo2"] = 38] = "Servo2";
+    PinsV2[PinsV2["Sens1"] = 4] = "Sens1";
+    PinsV2[PinsV2["Sens2"] = 5] = "Sens2";
+    PinsV2[PinsV2["Sens3"] = 6] = "Sens3";
+    PinsV2[PinsV2["Sens4"] = 7] = "Sens4";
+    PinsV2[PinsV2["SensSW"] = 8] = "SensSW";
+    PinsV2[PinsV2["SensEN"] = 47] = "SensEN";
+    PinsV2[PinsV2["Motor1A"] = 11] = "Motor1A";
+    PinsV2[PinsV2["Motor1B"] = 12] = "Motor1B";
+    PinsV2[PinsV2["Motor2A"] = 45] = "Motor2A";
+    PinsV2[PinsV2["Motor2B"] = 13] = "Motor2B";
+    PinsV2[PinsV2["Enc1A"] = 40] = "Enc1A";
+    PinsV2[PinsV2["Enc1B"] = 39] = "Enc1B";
+    PinsV2[PinsV2["Enc2A"] = 41] = "Enc2A";
+    PinsV2[PinsV2["Enc2B"] = 42] = "Enc2B";
+    PinsV2[PinsV2["SDA"] = 10] = "SDA";
+    PinsV2[PinsV2["SCL"] = 3] = "SCL";
+})(PinsV2 || (PinsV2 = {}));
+const RegV1 = {
     kp: 7000,
     ki: 350,
     kd: 350,
@@ -94,109 +67,102 @@ const reg = {
     maxIOut: 1023,
     unwindFactor: 1
 };
-export const leftMotor = new motor.Motor({ pins: leftMotorPins, ledc: leftMotorLedc, encTicks: 812, reg, circumference: wheelCircumference });
-export const rightMotor = new motor.Motor({ pins: rightMotorPins, ledc: rightMotorLedc, encTicks: 812, reg, circumference: wheelCircumference });
-adc.configure(Pins.Sens1, adc.Attenuation.Db0);
-adc.configure(Pins.Sens2, adc.Attenuation.Db0);
-adc.configure(Pins.Sens3, adc.Attenuation.Db0);
-adc.configure(Pins.Sens4, adc.Attenuation.Db0);
-gpio.pinMode(Pins.SensEN, gpio.PinMode.OUTPUT);
-gpio.write(Pins.SensEN, 1);
-gpio.pinMode(Pins.SensSW, gpio.PinMode.OUTPUT);
-let speed = 0;
-let ramp = 0;
-export function setSpeed(value) {
-    speed = value;
-}
-export function setRamp(value) {
-    ramp = value;
-}
-export function getSpeed() {
-    return speed;
-}
-export function getRamp() {
-    return ramp;
-}
-/**
- * Move the robot
- * @param curve number in range -1 to 1, where -1 is full left, 0 is straight and 1 is full right
- * @param duration optional duration of the move
- */
-export async function move(curve, duration) {
-    let lMot = 0;
-    let rMot = 0;
-    if (curve < 0) {
-        lMot = 1 + curve * 2;
-        rMot = 1;
+const RegV2 = {
+    kp: 7000,
+    ki: 350,
+    kd: 400,
+    kv: 166,
+    ka: 16000,
+    kc: 72,
+    maxIOut: 1023,
+    unwindFactor: 1
+};
+const EncoderTicksV1 = 812;
+const EncoderTicksV2 = 560;
+export class Robutek extends DifferentialDrive {
+    constructor(pins, encTicks, reg, ledcConfig) {
+        ledc.configureTimer(ledcConfig.timer, 20000, 10);
+        const leftMotorPins = { motA: pins.Motor1A, motB: pins.Motor1B, encA: pins.Enc1A, encB: pins.Enc1B };
+        const rightMotorPins = { motA: pins.Motor2A, motB: pins.Motor2B, encA: pins.Enc2A, encB: pins.Enc2B };
+        const leftMotorLedc = { timer: ledcConfig.timer, channelA: ledcConfig.channels[0], channelB: ledcConfig.channels[1] };
+        const rightMotorLedc = { timer: ledcConfig.timer, channelA: ledcConfig.channels[2], channelB: ledcConfig.channels[3] };
+        const leftMotor = new motor.Motor({ pins: leftMotorPins, ledc: leftMotorLedc, encTicks: encTicks, reg, circumference: wheelCircumference });
+        const rightMotor = new motor.Motor({ pins: rightMotorPins, ledc: rightMotorLedc, encTicks: encTicks, reg, circumference: wheelCircumference });
+        super(leftMotor, rightMotor, robutekDiameter);
+        this.PenPos = {
+            Down: 512 + 50,
+            Up: 512 - 180,
+            Unload: 150,
+        };
+        this.sw = 0;
+        this.stop();
+        adc.configure(pins.Sens1, adc.Attenuation.Db0);
+        adc.configure(pins.Sens2, adc.Attenuation.Db0);
+        adc.configure(pins.Sens3, adc.Attenuation.Db0);
+        adc.configure(pins.Sens4, adc.Attenuation.Db0);
+        gpio.pinMode(pins.SensEN, gpio.PinMode.OUTPUT);
+        gpio.write(pins.SensEN, 1);
+        gpio.pinMode(pins.SensSW, gpio.PinMode.OUTPUT);
+        this.Pins = pins;
     }
-    else if (curve > 0) {
-        lMot = 1;
-        rMot = 1 - curve * 2;
-    }
-    else {
-        lMot = 1;
-        rMot = 1;
-    }
-    leftMotor.setSpeed(lMot * speed);
-    rightMotor.setSpeed(rMot * speed);
-    leftMotor.setRamp(lMot * ramp);
-    rightMotor.setRamp(rMot * ramp);
-    const hasTime = duration && duration.hasOwnProperty("time");
-    const hasDistance = duration && duration.hasOwnProperty("distance");
-    if (duration && (hasTime || hasDistance)) {
-        if (hasTime) {
-            await Promise.all([
-                leftMotor.move(duration),
-                rightMotor.move(duration)
-            ]);
+    switchSensors(toValue) {
+        if (toValue == this.sw) {
+            return;
         }
-        else if (hasDistance) {
-            const distance = duration.distance;
-            await Promise.all([
-                leftMotor.move({ distance: distance * lMot }),
-                rightMotor.move({ distance: distance * rMot })
-            ]);
+        this.sw = toValue;
+        gpio.write(this.Pins.SensSW, toValue);
+        // don't do this at home
+        const start = Date.now();
+        while (Date.now() - start < 2)
+            ;
+    }
+    readSensor(sensor) {
+        switch (sensor) {
+            case 'WheelFL':
+                this.switchSensors(0);
+                return adc.read(this.Pins.Sens1);
+            case 'WheelFR':
+                this.switchSensors(0);
+                return adc.read(this.Pins.Sens2);
+            case 'WheelBL':
+                this.switchSensors(0);
+                return adc.read(this.Pins.Sens3);
+            case 'WheelBR':
+                this.switchSensors(0);
+                return adc.read(this.Pins.Sens4);
+            case 'LineFL':
+                this.switchSensors(1);
+                return adc.read(this.Pins.Sens1);
+            case 'LineFR':
+                this.switchSensors(1);
+                return adc.read(this.Pins.Sens2);
+            case 'LineBL':
+                this.switchSensors(1);
+                return adc.read(this.Pins.Sens3);
+            case 'LineBR':
+                this.switchSensors(1);
+                return adc.read(this.Pins.Sens4);
+            default:
+                throw new Error('Invalid sensor type');
         }
     }
-    else {
-        await Promise.all([
-            leftMotor.move(),
-            rightMotor.move()
-        ]);
+    close() {
+        this.leftMotor.close();
+        this.rightMotor.close();
+        gpio.pinMode(this.Pins.SensEN, gpio.PinMode.DISABLE);
+        gpio.pinMode(this.Pins.SensSW, gpio.PinMode.DISABLE);
+        ledc.stopTimer(this.ledcConfig.timer);
     }
 }
-/**
- * Rotate the robot
- * @param angle in degrees
- */
-export async function rotate(angle) {
-    leftMotor.setSpeed(speed);
-    rightMotor.setSpeed(speed);
-    leftMotor.setRamp(ramp);
-    rightMotor.setRamp(ramp);
-    const arcLength = (Math.abs(angle) / 360) * Math.PI * robutekDiameter;
-    let lMot;
-    let rMot;
-    if (angle < 0) {
-        lMot = -arcLength;
-        rMot = arcLength;
+export const defaultLedcConfig = {
+    timer: 0,
+    channels: [0, 1, 2, 3]
+};
+export function createRobutek(version, ledcConfig = defaultLedcConfig) {
+    if (version === "V1") {
+        return new Robutek(PinsV1, EncoderTicksV1, RegV1, ledcConfig);
     }
     else {
-        lMot = arcLength;
-        rMot = -arcLength;
+        return new Robutek(PinsV2, EncoderTicksV2, RegV2, ledcConfig);
     }
-    await Promise.all([
-        leftMotor.move({ distance: lMot }),
-        rightMotor.move({ distance: rMot })
-    ]);
-}
-/**
- * Stop the robot
- * @param brake if true, the robot will brake, otherwise it will coast to a stop
- */
-export async function stop(brake) {
-    await Promise.all([
-        leftMotor.stop(brake),
-        rightMotor.stop(brake)
-    ]);
 }
