@@ -38,6 +38,7 @@ def update_libs(libs:list, libs_dir:str):
         "colors" : "Robutek/robutekLibrary/src/libs",
         "VL53L0X" : "Robutek/robutekLibrary/src/libs",
         "robutek" : "Robutek/robutekLibrary/src/libs",
+        "zscs2016c" : "Robutek/robutekLibrary/src/libs",
     }
 
     for lib in libs:

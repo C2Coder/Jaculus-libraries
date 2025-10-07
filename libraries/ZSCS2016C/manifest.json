@@ -1,0 +1,13 @@
+{
+  "name": "ZSCS2016C",
+  "description": "Library for controlling ZSCS2016C color sensor",
+  "files": [
+    "zscs2016c.ts"
+  ],
+  "examples": [
+    {
+      "name": "Basic usage",
+      "file": "examples/basic-usage.ts"
+    }
+  ]
+}
