@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head class="dark:bg-gray-800 bg-gray-200">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://c2coder.eu/Jaculus-libraries/assets/logo.png">
+<link href="https://c2coder.eu/Jaculus-libraries/style.css" rel="stylesheet" type="text/css" />
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://c2coder.eu/Jaculus-libraries/assets/css/all.css">
+
+<!-- Prism.js one-dark theme -->
+<link href="https://c2coder.eu/Jaculus-libraries/assets/css/prism-one-dark.css" rel="stylesheet">
+    <title>ZSCS2016C</title>
+</head>
+<body class="flex flex-col min-h-screen">
+    <header class="px-2 fixed top-0 left-0 right-0 z-50 w-full flex ">
+    <nav class="mt-2 p-3 md:p-4 w-full relative bg-white border border-gray-200 rounded-[18px] md:rounded-[22px] md:flex md:items-center md:justify-between dark:bg-gray-800 dark:border-gray-700" aria-label="Global">
+
+        <div class="flex items-center justify-between">
+            <a class="flex flex-row items-center gap-x-2 " href="https://c2coder.eu/Jaculus-libraries/">
+                <img class="w-12 h-auto" src="https://c2coder.eu/Jaculus-libraries/assets/logo.png" alt="Logo">
+                <h1 class="ml-1 text-xl w-fit font-semibold dark:text-white hover:text-blue-600">
+                    Robotics Brno
+                </h1>
+            </a>
+
+            <div class="md:hidden">
+                <button type="button" class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-full border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
+                    <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    <svg class="hs-collapse-open:block hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block">
+            <div class="flex max-sm:mt-6 max-sm:mb-2 md:pl-7 md:pr-2 flex-col gap-y-4 gap-x-0 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-7">
+                
+                    
+                    
+                    
+                    
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                        
+                            <a class="font-medium md:py-4 text-gray-500 hover:text-gray-400 dark:text-gray-400 hover:text-gray-500"
+                               href="https://c2coder.eu/Jaculus-libraries/libs"
+                               >
+                                Libs
+                            </a>
+                        
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                
+            </div>
+        </div>
+    </nav>
+</header>
+    
+    <div class="mt-[5.75rem] md:mt-[6.75rem]">
+        
+<div class="mx-2">
+  
+  <div class="flex flex-col gap-2 ">
+
+    <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="dark:text-white text-xl font-bold text-gray-800">ZSCS2016C</h2>
+      <p class="dark:text-gray-300 text-gray-600 flex-grow">Library for controlling ZSCS2016C color sensor</p>
+    </div>
+
+    <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="mb-1 dark:text-white text-xl font-bold text-gray-800">Install command</h2>
+      <div class="px-2">
+        <pre class="rounded"><code class="language-bash">jlm install ZSCS2016C</code></pre>
+        <h2 class="mb-1 dark:text-white text-lg font-semibold text-gray-800">or</h2>
+        <pre class="rounded"><code class="language-bash">curl -o ./src/libs/zscs2016c.ts https://c2coder.eu/Jaculus-libraries/data/ZSCS2016C/zscs2016c.ts</code></pre>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="mt-4 flex flex-col gap-2 w-full">
+    
+    <div class="p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="dark:text-white text-xl font-bold text-gray-800 mb-1">Basic usage</h2>
+
+      <div class="px-2">
+        <pre class="rounded"><code class="language-typescript"></code></pre>
+      </div>
+
+    </div>
+    
+  </div>
+
+
+  
+  <div class="mt-4 p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+    <h2 class="dark:text-white text-xl font-bold text-gray-800">Source code:</h2>
+  </div>
+
+  <div class="accordion flex flex-col mt-2 gap-2" id="accordionCode">
+    
+    <div id="accordion-item"
+      class="accordion-item p-4 flex flex-col w-full min-w-0 dark:bg-gray-800 bg-white rounded-lg shadow-md">
+      <h2 class="flex flex-row accordion-header dark:text-white text-xl font-bold text-gray-800">
+        <button id="accordion-button" class="accordion-button flex flex-row w-full fill-white text-white" type="button">
+          zscs2016c.ts
+          <div class="flex flex-grow"></div>
+          <i id="arrow" class="my-auto fa fa-solid fa-angle-down"></i>
+        </button>
+
+        <a class="my-auto ml-1" href="https://github.com/C2Coder/Jaculus-libraries/blob/main/libraries/ZSCS2016C/zscs2016c.ts" target="_blank">
+          <i class="my-auto fa fa-brands fa-github ml-2 "></i>
+        </a>
+      </h2>
+
+      <div class="mx-1 pt-1 dark:text-gray-300 text-gray-600">
+        <div id="accordion-body" class="hidden">
+          <pre class="mx-1 mt-1 rounded"><code class="language-typescript">import * as i2c from &#34;i2c&#34;;
+import { open as kvOpen, KeyValueNamespace } from &#34;keyvalue&#34;;
+
+const ADDRESS_LOW = 0b1000_010;
+const ADDRESS_HIGH = 0b1000_011;
+
+enum Reg {
+    Command = 0x80,
+    DeviceId = 0x82,
+    RevisionId = 0x83,
+    RedChan = 0xa0,
+    GreenChan = 0xa2,
+    BlueChan = 0xa4,
+    ClearChan = 0xa6,
+    IRChan = 0xa8,
+}
+
+enum CmdMask {
+    PON = 0b1 &lt;&lt; 0, // Power on
+    RGB_EN = 0b1 &lt;&lt; 1, // RGB, clear, IR controller enable
+    W_EN = 0b1 &lt;&lt; 2, // Wait state enable
+    // reserved
+    DARK_EN = 0b1 &lt;&lt; 4, // Dark offset cancelation enable
+    // reserved
+    RGB_TIME = 0b111 &lt;&lt; 8, // Optical integration time
+    W_TIME = 0b1 &lt;&lt; 11, // Wait time
+    AGAIN = 0b11 &lt;&lt; 12, // Analog gain
+    IRGAIN = 0b11 &lt;&lt; 14, // IR gain
+}
+
+function setMasked(
+    bus: i2c.I2C,
+    address: number,
+    reg: number,
+    quantity: number,
+    mask: number,
+    value: number
+) {
+    let data = bus.writeRead(address, reg, quantity);
+    for (let i = 0; i &lt; quantity; i++) {
+        let maskByte = (mask &gt;&gt; (8 * i)) &amp; 0xff;
+        let valueByte = (value &gt;&gt; (8 * i)) &amp; 0xff;
+        data[i] = (data[i] &amp; ~maskByte) | (valueByte &amp; maskByte);
+    }
+
+    bus.writeTo(address, [reg, ...data]);
+}
+
+function readInt16(bus: i2c.I2C, address: number, reg: Reg) {
+    let value = bus.writeRead(address, reg, 2);
+    return value[0] | (value[1] &lt;&lt; 8);
+}
+
+function scale(value: number, min: number, max: number) {
+    const val = (value - min) / (max - min);
+    return Math.min(Math.max(val, 0), 1);
+}
+
+export type Calibration = {
+    mins: number[];
+    maxs: number[];
+};
+
+export class ZSCS2016C {
+    readonly bus: i2c.I2C;
+    private cal: Calibration = {
+        mins: Array(5).fill(0),
+        maxs: Array(5).fill(1),
+    };
+    private addr: number;
+
+    /**
+     * Creates a new instance of the ZSCS2016C color sensor.
+     * @param bus The I2C bus used for communication
+     * @param addrBit If true, uses address 0x43, otherwise 0x42
+     */
+    constructor(bus: i2c.I2C, addrBit: boolean) {
+        this.bus = bus;
+        this.addr = addrBit ? ADDRESS_HIGH : ADDRESS_LOW;
+    }
+
+    /**
+     * Resets the sensor to its default state.
+     */
+    reset() {
+        setMasked(this.bus, this.addr, Reg.Command, 2, 0xffff, 0);
+    }
+
+    /**
+     * Initializes the sensor
+     */
+    enable() {
+        setMasked(
+            this.bus,
+            this.addr,
+            Reg.Command,
+            2,
+            0xffff,
+            CmdMask.PON | CmdMask.RGB_EN
+        );
+    }
+
+    /**
+     * Reads value of the red channel and applies calibration.
+     * @returns Scaled value of the red channel (0-1)
+     */
+    readRed() {
+        let value = this.readRawRed();
+        return scale(value, this.cal.mins[0], this.cal.maxs[0]);
+    }
+
+    /**
+     * Reads value of the green channel and applies calibration.
+     * @returns Scaled value of the green channel (0-1)
+     */
+    readGreen() {
+        let value = this.readRawGreen();
+        return scale(value, this.cal.mins[1], this.cal.maxs[1]);
+    }
+
+    /**
+     * Reads value of the blue channel and applies calibration.
+     * @returns Scaled value of the blue channel (0-1)
+     */
+    readBlue() {
+        let value = this.readRawBlue();
+        return scale(value, this.cal.mins[2], this.cal.maxs[2]);
+    }
+
+    /**
+     * Reads value of the IR channel and applies calibration.
+     * @returns Scaled value of the IR channel (0-1)
+     */
+    readIR() {
+        let value = this.readRawIR();
+        return scale(value, this.cal.mins[3], this.cal.maxs[3]);
+    }
+
+    /**
+     * Reads value of the clear channel (unfiltered color) and applies calibration.
+     * @returns Scaled value of the clear channel (0-1)
+     */
+    readClear() {
+        let value = this.readRawClear();
+        return scale(value, this.cal.mins[4], this.cal.maxs[4]);
+    }
+
+    /**
+     * Reads values of all RGB channels and applies calibration.
+     * @note This method is more efficient and accurate than reading all channels individually.
+     * @returns Array of scaled RGB values [R, G, B] (0-1)
+     */
+    readRGB(): [number, number, number] {
+        let value = this.readRawRGB();
+        return [
+            scale(value[0], this.cal.mins[0], this.cal.maxs[0]),
+            scale(value[1], this.cal.mins[1], this.cal.maxs[1]),
+            scale(value[2], this.cal.mins[2], this.cal.maxs[2]),
+        ];
+    }
+
+
+    /**
+     * Reads raw value of the red channel.
+     * @returns Raw value of the red channel
+     */
+    readRawRed() {
+        return readInt16(this.bus, this.addr, Reg.RedChan);
+    }
+
+    /**
+     * Reads raw value of the green channel.
+     * @returns Raw value of the green channel
+     */
+    readRawGreen() {
+        return readInt16(this.bus, this.addr, Reg.GreenChan);
+    }
+
+    /**
+     * Reads raw value of the blue channel.
+     * @returns Raw value of the blue channel
+     */
+    readRawBlue() {
+        return readInt16(this.bus, this.addr, Reg.BlueChan);
+    }
+
+    /**
+     * Reads raw value of the IR channel.
+     * @returns Raw value of the IR channel
+     */
+    readRawIR() {
+        return readInt16(this.bus, this.addr, Reg.IRChan);
+    }
+
+    /**
+     * Reads raw value of the clear channel (unfiltered color).
+     * @returns Raw value of the clear channel
+     */
+    readRawClear() {
+        return readInt16(this.bus, this.addr, Reg.ClearChan);
+    }
+
+    /**
+     * Reads raw values of all RGB channels.
+     * @note This method is more efficient and accurate than reading all channels individually.
+     * @returns Array of raw RGB values [R, G, B]
+     */
+    readRawRGB() {
+        let value = this.bus.writeRead(this.addr, Reg.RedChan, 6);
+        return [
+            value[0] | (value[1] &lt;&lt; 8),
+            value[2] | (value[3] &lt;&lt; 8),
+            value[4] | (value[5] &lt;&lt; 8),
+        ];
+    }
+
+
+    /**
+     * Runs a calibration procedure for the sensor. During the calibration, the sensor
+     * should be placed on a white and a black surface. The resulting calibration
+     * depends on the distance from the surface and lighting conditions.
+     */
+    async runCalibration(): Promise&lt;void&gt; {
+        let mins = Array(5).fill(Infinity);
+        let maxs = Array(5).fill(0);
+        let funs = [&#34;readRawRed&#34;, &#34;readRawGreen&#34;, &#34;readRawBlue&#34;, &#34;readRawIR&#34;, &#34;readRawClear&#34;];
+
+        console.log(&#34;Place on white...&#34;);
+        await sleep(3000);
+        console.log(&#34;measuring...&#34;);
+        for (let i = 0; i &lt; 30; i++) {
+            for (let i = 0; i &lt; funs.length; i++) {
+                let value = this[funs[i]]();
+                maxs[i] = Math.max(maxs[i], value);
+            }
+            await sleep(10);
+        }
+
+        console.log(&#34;Place on black...&#34;);
+        await sleep(3000);
+        console.log(&#34;measuring...&#34;);
+        for (let i = 0; i &lt; 30; i++) {
+            for (let i = 0; i &lt; funs.length; i++) {
+                let value = this[funs[i]]();
+                mins[i] = Math.min(mins[i], value);
+            }
+            await sleep(10);
+        }
+        console.log(&#34;Calibration done&#34;);
+
+        this.cal = {
+            mins: mins,
+            maxs: maxs,
+        };
+    }
+
+    /**
+     * Returns the current calibration data.
+     * @throws Error if calibration is not set
+     * @returns The current calibration data
+     */
+    getCalibration(): Calibration {
+        if (!this.cal) {
+            throw new Error(&#34;Calibration not set&#34;);
+        }
+        return this.cal;
+    }
+
+    /**
+     * Sets the calibration data.
+     * @param cal The calibration data to set
+     */
+    setCalibration(cal: Calibration) {
+        this.cal = cal;
+    }
+
+    /**
+     * Saves the current calibration data to persistent storage.
+     * @param id Identifier for the calibration data
+     */
+    saveCalibration(id: string) {
+        const kv = kvOpen(&#34;ZSCS2016C_calib&#34;);
+        kv.set(id, JSON.stringify(this.cal));
+        kv.commit();
+    }
+
+    /**
+     * Loads calibration data from persistent storage.
+     * @param id Identifier for the calibration data
+     */
+    loadCalibration(id: string) {
+        const kv = kvOpen(&#34;ZSCS2016C_calib&#34;);
+        const data = kv.getString(id);
+        if (!data) {
+            throw new Error(`Calibration with id ${id} not found`);
+        }
+        this.cal = JSON.parse(data);
+    }
+}</code></pre>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+</div>
+
+    </div>
+
+    
+    <div class="mt-2 flex flex-grow">
+    </div>
+    
+    <!-- Footer -->
+<footer class="py-6 px-6 dark:bg-gray-800 bg-white">
+    <div class="sm:px-6 lg:px-8 container mx-auto max-w-7xl">
+        <div class="flex justify-between items-center">
+            <div class="text-center md:text-left text-gray-600 dark:text-gray-300">
+                <h5 class="text-lg font-semibold">C2Coder</h5>
+                <p class="py-2">© 2025 All rights reserved.</p>
+            </div>
+            <a href="https://github.com/C2Coder/Jaculus-libraries" target="_blank" class="ml-3 my-auto flex flex-row ">
+
+                <svg class="w-5 my-auto" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 496 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path fill="white"
+                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                </svg>
+                <p
+                    class="ml-2 my-auto dark:text-gray-300 dark:hover:text-gray-500 text-gray-600 hover:text-gray-800 rounded-md font-medium">
+                    Github</p>
+            </a>
+        </div>
+    </div>
+</footer>
+    
+<script src="https://c2coder.eu/Jaculus-libraries/assets/js/preline.js"></script>
+
+<script src="https://c2coder.eu/Jaculus-libraries/assets/js/accordion.js"></script>
+
+<!-- Prism.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+<!-- Prism.js TypeScript support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-typescript.min.js"></script>
+<!-- Prism.js Bash support -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-bash.min.js"></script>
+</body>
+</html>
